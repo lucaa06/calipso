@@ -36,6 +36,55 @@
   "serviceType":["Web Design","Web Development","SEO","E-commerce","AI Optimization"]
 }
 </script>
+<!-- ════════════════════════════════════════════════
+  ISTRUZIONI — sostituisci i valori tra [  ] con i tuoi:
+
+  1. GOOGLE SEARCH CONSOLE
+     → Vai su search.google.com/search-console
+     → Aggiungi proprietà → "Prefisso URL" → incolla l'URL del sito
+     → Scegli metodo "Tag HTML"
+     → Copia il contenuto dell'attributo content="xxxx"
+     → Sostituisci INSERISCI_QUI_IL_CODICE_SEARCH_CONSOLE
+
+  2. GOOGLE TAG MANAGER
+     → Vai su tagmanager.google.com
+     → Crea account → Crea contenitore (tipo Web)
+     → Copia il tuo ID contenitore (es. GTM-XXXXXXX)
+     → Sostituisci GTM-XXXXXXX in entrambi gli snippet GTM
+
+  3. GOOGLE ANALYTICS 4
+     → Vai su analytics.google.com
+     → Crea proprietà → ottieni Measurement ID (es. G-XXXXXXXXXX)
+     → Sostituisci G-XXXXXXXXXX
+     → Se usi GTM puoi gestire GA4 da lì e rimuovere lo snippet GA4 qui sotto
+
+  4. URL DEL SITO (GitHub Pages senza dominio custom)
+     → Il tuo sito sarà disponibile su:
+        https://TUO-USERNAME.github.io/NOME-REPO/
+     → Sostituisci anche le righe canonical e og:url qui sopra con quell'URL esatto
+════════════════════════════════════════════════ -->
+
+<!-- Google Search Console verification -->
+<meta name="google-site-verification" content="INSERISCI_QUI_IL_CODICE_SEARCH_CONSOLE">
+
+<!-- Google Tag Manager — snippet HEAD (deve stare il più in alto possibile) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+<!-- Fine Google Tag Manager -->
+
+<!-- Google Analytics 4 — snippet diretto (alternativa a GTM, usa uno dei due) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- Fine Google Analytics 4 -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 
@@ -359,6 +408,11 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
 </head>
 <body>
 
+<!-- Google Tag Manager (noscript) — deve essere subito dopo <body> -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- Fine Google Tag Manager (noscript) -->
+
 <div class="cur-d" id="curd"></div>
 <div class="cur-r" id="curr"></div>
 <div class="cur-l" id="curl"></div>
@@ -409,7 +463,7 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
   <div class="hero-foot">
     <p class="h-sub" id="hsub">Costruiamo siti web che <strong>lavorano davvero</strong> — veloci, legali, bellissimi e pronti per la ricerca AI del 2026.</p>
     <div class="h-right" id="hright">
-      <a href="mailto:genovaagencydesign@gmail.com" class="h-btn" data-cursor="Scrivi">Inizia il progetto</a>
+      <a href="/cdn-cgi/l/email-protection#eb8c8e85849d8a8a8c8e8588928f8e98828c85ab8c868a8287c5888486" class="h-btn" data-cursor="Scrivi">Inizia il progetto</a>
       <span class="h-hint"><div class="h-pulse"></div>Scorri per scoprire</span>
     </div>
   </div>
@@ -458,7 +512,7 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
   <div class="proc-l sr">
     <h2>Come<br>lavoriamo<br><em>con te</em></h2>
     <p>Niente template, niente soluzioni copia-incolla. Ogni progetto nasce da un'analisi reale del tuo mercato e dei tuoi obiettivi concreti.</p>
-    <a href="mailto:genovaagencydesign@gmail.com" class="proc-btn" data-cursor="Scrivi">Parlaci del progetto</a>
+    <a href="/cdn-cgi/l/email-protection#b4d3d1dadbc2d5d5d3d1dad7cdd0d1c7ddd3daf4d3d9d5ddd89ad7dbd9" class="proc-btn" data-cursor="Scrivi">Parlaci del progetto</a>
   </div>
   <div class="proc-steps sr d2">
     <div class="step"><span class="step-n">01</span><div><div class="step-t">ASCOLTO</div><p class="step-b">Capiamo chi sei, cosa vendi e a chi. Analizziamo il mercato e i competitor prima di aprire qualsiasi editor.</p></div></div>
@@ -676,7 +730,7 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
   <p class="ct-tag sr">Iniziamo</p>
   <h2 class="ct-big sr">PARLIAMO.</h2>
   <p class="ct-sub sr">Raccontaci il tuo progetto.</p>
-  <a class="ct-mail sr" href="mailto:genovaagencydesign@gmail.com" data-cursor="Scrivi">genovaagencydesign@gmail.com</a>
+  <a class="ct-mail sr" href="/cdn-cgi/l/email-protection#3750525958415656505259544e5352445e505977505a565e5b1954585a" data-cursor="Scrivi"><span class="__cf_email__" data-cfemail="4027252e2f36212127252e233924253329272e00272d21292c6e232f2d">[email&#160;protected]</span></a>
   <p class="ct-note sr">Genova, Italia — risposta entro 24 ore</p>
 </section>
 
@@ -704,7 +758,7 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
     </div>
     <div class="ft-copy">
       © 2026 Calipso Web Agency<br>
-      <a href="mailto:genovaagencydesign@gmail.com">genovaagencydesign@gmail.com</a>
+      <a href="/cdn-cgi/l/email-protection#7710121918011616101219140e1312041e101937101a161e1b5914181a"><span class="__cf_email__" data-cfemail="93f4f6fdfce5f2f2f4f6fdf0eaf7f6e0faf4fdd3f4fef2faffbdf0fcfe">[email&#160;protected]</span></a>
     </div>
   </div>
 </footer>
@@ -720,7 +774,7 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
 
 </div><!-- /site -->
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── PRELOADER ── */
 document.addEventListener('DOMContentLoaded', () => {
   const m=document.getElementById('ldm'), p=document.getElementById('ldp'), n=document.getElementById('ldn');
