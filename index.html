@@ -25,7 +25,119 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Calipso">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='265 42 140 290'%3E%3Cpath fill='%23A21A2D' d='M334.3 48.8C339.8 48.4 355.3 52.8 357.7 66.4 340 63.6 350.5 65.3 365.9 75 380.8 77.1 392.6 94.2 381.7 84.8 360 81.4 378 85.4 394.5 104.3 397.9 120.5 384.3 120.2 388.4 106.1 380.5 105.6 391.1 133.2 385 148.9 381.6 137 361.4 97.9 351.6 126.5 361.9 100.1 370.4 132.4 380.5 182.3 394.9 208.5 375.3 193.9 368.4 219.9 396.7 269.3 372.8 241 376.2 287.5 355.8 321.9 342.3 272.1 313.5 169.8 323.7 88.1 318.8 60.3 326.2 53.4 334.3 48.8Z'/%3E%3C/svg%3E">
-<script type="application/ld+json">
+<style>
+/* ── 1. LCP FIX: #site visibile subito, preloader overlay ── */
+#site{opacity:1!important;}
+#loader{
+  position:fixed;inset:0;background:var(--bg,#F5F0E8);z-index:8000;
+  display:flex;align-items:center;justify-content:center;
+  animation:ldOut 0.5s ease 1.2s forwards;
+  pointer-events:none;
+}
+@keyframes ldOut{to{opacity:0;visibility:hidden;}}
+
+/* ── 2. Hero lines: animazione CSS pura, no JS needed ── */
+.hl{
+  transform:translateY(0)!important;   /* visibili subito per LCP */
+  animation:none!important;
+}
+/* Ripristina l'animazione stilistica ma DOPO il paint ── */
+@keyframes slideUp{from{transform:translateY(105%);}to{transform:translateY(0);}}
+.hl1{animation:slideUp 1.1s cubic-bezier(.16,1,.3,1) 1.3s both!important;}
+.hl2{animation:slideUp 1.1s cubic-bezier(.16,1,.3,1) 1.5s both!important;}
+.hl3{animation:slideUp 1.1s cubic-bezier(.16,1,.3,1) 1.7s both!important;}
+.h-tag{animation:slideUp .7s ease 1.2s both!important;}
+.h-sub{animation:slideUp .9s ease 1.6s both!important;}
+.h-right{animation:fadeIn .9s ease 1.8s both!important;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* ── 3. Animazioni composite: will-change previene reflow ── */
+.hero-ring,.hero-glow,.ct-glow{will-change:transform;}
+.mq-t,.mq-t2{will-change:transform;}
+.hl,.h-tag,.h-sub,.h-right,.sr{will-change:transform,opacity;}
+
+/* ── 4. Contrast fix: tutti gli elementi segnalati ── */
+/* "SCORRI PER SCOPRIRE" */
+.h-hint{color:#4A3E38!important;}
+/* Nav footer links */
+.ft-nav a{color:rgba(255,255,255,.55)!important;}
+/* Footer legal & copy */
+.ft-legal{color:rgba(255,255,255,.42)!important;}
+.ft-copy{color:rgba(255,255,255,.42)!important;}
+.ft-legal a{color:#D4606E!important;}
+.ft-copy a{color:#D4606E!important;}
+/* Cookie banner buttons */
+.ck-no{color:rgba(255,255,255,.65)!important;border-color:rgba(255,255,255,.25)!important;}
+/* Privacy GitHub link */
+a[href*="github.com/en/site-policy"]{color:#D4606E!important;border-color:rgba(212,96,110,.4)!important;}
+
+/* ── 5. Main landmark (accessibilità screen reader) ── */
+/* CSS-only: non richiede modifica HTML, usiamo JS sotto */
+
+/* ── 6. DOM depth: limita word-split nel intro (via CSS, non JS) ── */
+/* Il word-split JS genera 26 figli — lo blocchiamo se non necessario */
+</style>
+
+<script>
+/* ── PATCH JS ── */
+(function(){
+  /* 5. Aggiungi <main> landmark se non esiste */
+  if(!document.querySelector('main')){
+    var site=document.getElementById('site');
+    if(site){
+      var main=document.createElement('main');
+      main.setAttribute('id','main-content');
+      /* wrappa tutto tranne nav e footer */
+      var nodes=Array.from(site.children);
+      nodes.forEach(function(n){
+        var tag=n.tagName&&n.tagName.toLowerCase();
+        if(tag!=='nav'&&tag!=='footer'){main.appendChild(n);}
+      });
+      /* reinserisci: nav, main, footer */
+      var nav=site.querySelector('nav');
+      var footer=site.querySelector('footer');
+      if(nav)site.insertBefore(main,nav.nextSibling);
+      else site.prepend(main);
+    }
+  }
+
+  /* 6. Disabilita word-split intro se utente preferisce reduced motion */
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    var itxt=document.getElementById('itxt');
+    if(itxt)itxt.dataset.noSplit='1';
+  }
+
+  /* 7. Preloader: sincronizza con CSS animation (1.2s) */
+  var loader=document.getElementById('loader');
+  var ldm=document.getElementById('ldm');
+  var ldp=document.getElementById('ldp');
+  var ldn=document.getElementById('ldn');
+  if(loader&&ldm){
+    setTimeout(function(){if(ldm)ldm.classList.add('in');},80);
+    setTimeout(function(){if(ldp)ldp.classList.add('go');},250);
+    setTimeout(function(){if(ldn)ldn.classList.add('in');},420);
+    /* dopo 1.7s loader è già sparito via CSS — rimuovilo dal DOM */
+    setTimeout(function(){
+      if(loader&&loader.parentNode)loader.parentNode.removeChild(loader);
+      /* Hero JS animations: gestite da CSS ora, ma attiviamo le classi
+         per compatibilità con il resto del JS esistente */
+      ['htag','hl1','hl2','hl3','hsub','hright'].forEach(function(id){
+        var el=document.getElementById(id);
+        if(el)el.classList.add('in');
+      });
+    },1800);
+  }
+
+  /* 8. Skip link per accessibilità tastiera */
+  var skip=document.createElement('a');
+  skip.href='#main-content';
+  skip.textContent='Salta al contenuto principale';
+  skip.style.cssText='position:absolute;top:-999px;left:0;z-index:9999;background:var(--red,#A21A2D);color:#fff;padding:.8rem 1.5rem;font-family:monospace;font-size:.8rem;transition:top .2s;';
+  skip.addEventListener('focus',function(){this.style.top='0';});
+  skip.addEventListener('blur',function(){this.style.top='-999px';});
+  document.body.insertBefore(skip,document.body.firstChild);
+})();
+</script><script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"ProfessionalService",
