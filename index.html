@@ -324,6 +324,116 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
 .ck-no{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.38);background:transparent;border:1px solid rgba(255,255,255,.1);padding:.8rem 1.9rem;cursor:none;transition:color .3s,border-color .3s;}
 .ck-no:hover{color:#fff;border-color:rgba(255,255,255,.3);}
 
+/* ── SKIP LINK ── */
+.skip-link{position:fixed;top:-100px;left:1.5rem;z-index:99999;background:var(--red);color:#fff;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;padding:.85rem 1.6rem;text-decoration:none;transition:top .25s;}
+.skip-link:focus{top:1.2rem;}
+
+/* ── FOCUS VISIBLE ── */
+:focus-visible{outline:2px solid var(--red);outline-offset:3px;}
+
+/* ── REDUCED MOTION ── */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;}
+}
+
+/* ── ACCESSIBILITY WIDGET ── */
+#acc-btn{
+  position:fixed;bottom:2.2rem;right:2.2rem;z-index:9000;
+  width:52px;height:52px;
+  background:var(--ink);border:none;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  transition:background .3s,transform .3s;
+  box-shadow:0 4px 24px rgba(12,9,8,.22);
+}
+#acc-btn:hover{background:var(--red);transform:translateY(-2px);}
+#acc-btn:focus-visible{outline:2px solid var(--red);outline-offset:4px;}
+#acc-btn svg{width:22px;height:22px;stroke:#fff;fill:none;transition:transform .4s cubic-bezier(.23,1,.32,1);}
+#acc-btn.open svg{transform:rotate(90deg);}
+
+#acc-panel{
+  position:fixed;bottom:6.4rem;right:2.2rem;z-index:8999;
+  width:300px;
+  background:var(--bg);border:1px solid rgba(12,9,8,.12);
+  box-shadow:0 16px 56px rgba(12,9,8,.14);
+  opacity:0;visibility:hidden;
+  transform:translateY(12px);
+  transition:opacity .35s cubic-bezier(.23,1,.32,1),transform .35s cubic-bezier(.23,1,.32,1),visibility .35s;
+}
+#acc-panel.open{opacity:1;visibility:visible;transform:none;}
+
+.acc-hdr{
+  padding:1.4rem 1.6rem 1.1rem;
+  border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.acc-title{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);}
+.acc-reset{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);background:none;border:none;cursor:pointer;padding:0;transition:opacity .2s;}
+.acc-reset:hover{opacity:.6;}
+
+.acc-body{padding:1.1rem 1.4rem 1.5rem;display:flex;flex-direction:column;gap:.55rem;}
+
+.acc-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.8rem 1rem;
+  border:1px solid var(--line);
+  background:transparent;
+  cursor:pointer;
+  transition:background .22s,border-color .22s;
+  width:100%;text-align:left;
+}
+.acc-row:hover{background:var(--bg2);}
+.acc-row.active{background:var(--red-pale);border-color:rgba(162,26,45,.28);}
+.acc-row:focus-visible{outline:2px solid var(--red);outline-offset:2px;}
+
+.acc-row-label{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);pointer-events:none;}
+.acc-row.active .acc-row-label{color:var(--red);}
+
+.acc-toggle{width:34px;height:18px;background:var(--bg3);border:1px solid var(--line);position:relative;pointer-events:none;flex-shrink:0;transition:background .22s,border-color .22s;}
+.acc-toggle::after{content:'';position:absolute;top:2px;left:2px;width:12px;height:12px;background:var(--muted2);transition:transform .25s cubic-bezier(.23,1,.32,1),background .22s;}
+.acc-row.active .acc-toggle{background:var(--red);border-color:var(--red);}
+.acc-row.active .acc-toggle::after{transform:translateX(16px);background:#fff;}
+
+/* stepper testo */
+.acc-stepper-row{display:flex;align-items:center;justify-content:space-between;padding:.8rem 1rem;border:1px solid var(--line);}
+.acc-stepper-label{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
+.acc-stepper{display:flex;align-items:center;gap:.5rem;}
+.acc-step-btn{width:22px;height:22px;background:none;border:1px solid var(--line);font-family:'DM Mono',monospace;font-size:.75rem;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s,border-color .2s;line-height:1;flex-shrink:0;}
+.acc-step-btn:hover{background:var(--red);color:#fff;border-color:var(--red);}
+.acc-step-btn:focus-visible{outline:2px solid var(--red);outline-offset:2px;}
+.acc-step-val{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.1em;color:var(--ink);min-width:30px;text-align:center;}
+
+.acc-footer{padding:.9rem 1.6rem;border-top:1px solid var(--line);font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.12em;color:var(--muted2);line-height:1.8;}
+
+/* ── ACCESSIBILITY STATES ── */
+body.acc-high-contrast{
+  --bg:#fff!important;--bg2:#f0f0f0!important;--bg3:#e0e0e0!important;
+  --ink:#000!important;--ink2:#111!important;
+  --muted:#222!important;--muted2:#444!important;
+  --line:rgba(0,0,0,.3)!important;
+  --red:#990000!important;--red2:#bb0000!important;--red-pale:#ffe5e5!important;
+}
+body.acc-high-contrast .contact{background:#000!important;}
+body.acc-high-contrast footer{background:#111!important;}
+
+body.acc-links a:not(.n-logo):not(.h-btn):not(.proc-btn):not(.ct-mail):not(.n-cta):not(.acc-reset){
+  text-decoration:underline!important;text-underline-offset:3px!important;
+  text-decoration-thickness:2px!important;text-decoration-color:var(--red)!important;
+}
+
+body.acc-no-anim *,body.acc-no-anim *::before,body.acc-no-anim *::after{
+  animation:none!important;transition-duration:.01ms!important;
+}
+
+body.acc-dyslexia{font-family:Georgia,'Times New Roman',serif!important;letter-spacing:.04em!important;word-spacing:.2em!important;line-height:2!important;}
+
+body.acc-spacing{letter-spacing:.06em!important;word-spacing:.22em!important;line-height:2.1!important;}
+
+@media(max-width:768px){
+  #acc-btn{bottom:1.4rem;right:1.4rem;width:46px;height:46px;}
+  #acc-panel{right:1.4rem;bottom:5rem;width:calc(100vw - 2.8rem);}
+}
+
 /* ── SCROLL REVEAL ── */
 .sr{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.23,1,.32,1);}
 .sr.in{opacity:1;transform:none;}
@@ -449,6 +559,8 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Vai al contenuto principale</a>
+
 <div class="cur-d" id="curd"></div>
 <div class="cur-r" id="curr"></div>
 <div class="cur-l" id="curl"></div>
@@ -468,7 +580,7 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
 <div id="site">
 
 <!-- NAV -->
-<nav id="nav">
+<nav id="nav" aria-label="Navigazione principale">
   <a class="n-logo" href="#">
     <svg viewBox="265 42 140 290" xmlns="http://www.w3.org/2000/svg">
       <path fill="#A21A2D" d="M334.3 48.8C339.8 48.4 355.3 52.8 357.7 66.4 340 63.6 350.5 65.3 365.9 75 380.8 77.1 392.6 94.2 381.7 84.8 360 81.4 378 85.4 394.5 104.3 397.9 120.5 384.3 120.2 388.4 106.1 380.5 105.6 391.1 133.2 385 148.9 381.6 137 361.4 97.9 351.6 126.5 361.9 100.1 370.4 132.4 380.5 182.3 394.9 208.5 381.3 195.6 375.3 193.9 360.8 172.8 368.4 219.9 392.9 225.8 409.8 240.6 396.7 269.3 351.6 207.1 372.8 241 376.2 287.5 361.6 279.5 355.8 321.9 342.3 272.1 323.1 212.5 313.5 169.8 314.4 119 323.7 88.1 318.8 60.3 326.2 53.4 334.3 48.8Z"/>
@@ -484,6 +596,7 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
 </nav>
 
 <!-- HERO -->
+<main id="main-content">
 <section class="hero">
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="hero-ring r1" aria-hidden="true"></div>
@@ -770,6 +883,7 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
   <p class="ct-note sr">Genova, Italia — risposta entro 24 ore</p>
 </section>
 
+</main>
 <!-- FOOTER -->
 <footer>
   <div class="ft-top">
@@ -805,6 +919,62 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
   <div class="ck-btns">
     <button class="ck-no" id="ckNo">Solo tecnici</button>
     <button class="ck-ok" id="ckOk">Accetta</button>
+  </div>
+</div>
+
+<!-- ACCESSIBILITY WIDGET -->
+<button id="acc-btn" aria-label="Apri strumenti di accessibilità" aria-expanded="false" aria-controls="acc-panel">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="5" r="1.5"/>
+    <path d="M9 9h6M12 9v7M9 16l-2 3M15 16l2 3"/>
+    <path d="M7 9c0 0 1 1 5 1s5-1 5-1"/>
+  </svg>
+</button>
+
+<div id="acc-panel" role="dialog" aria-label="Strumenti di accessibilità" aria-hidden="true">
+  <div class="acc-hdr">
+    <span class="acc-title">Accessibilita</span>
+    <button class="acc-reset" id="acc-reset-btn" aria-label="Reimposta tutte le opzioni">Reimposta</button>
+  </div>
+  <div class="acc-body">
+
+    <div class="acc-stepper-row" role="group" aria-labelledby="acc-fontsize-label">
+      <span class="acc-stepper-label" id="acc-fontsize-label">Dimensione testo</span>
+      <div class="acc-stepper">
+        <button class="acc-step-btn" id="acc-font-down" aria-label="Riduci dimensione testo">-</button>
+        <span class="acc-step-val" id="acc-font-val" aria-live="polite">100%</span>
+        <button class="acc-step-btn" id="acc-font-up" aria-label="Aumenta dimensione testo">+</button>
+      </div>
+    </div>
+
+    <button class="acc-row" id="acc-contrast" role="switch" aria-checked="false">
+      <span class="acc-row-label">Alto contrasto</span>
+      <span class="acc-toggle" aria-hidden="true"></span>
+    </button>
+
+    <button class="acc-row" id="acc-links" role="switch" aria-checked="false">
+      <span class="acc-row-label">Evidenzia link</span>
+      <span class="acc-toggle" aria-hidden="true"></span>
+    </button>
+
+    <button class="acc-row" id="acc-anim" role="switch" aria-checked="false">
+      <span class="acc-row-label">Ferma animazioni</span>
+      <span class="acc-toggle" aria-hidden="true"></span>
+    </button>
+
+    <button class="acc-row" id="acc-dyslexia" role="switch" aria-checked="false">
+      <span class="acc-row-label">Font leggibile</span>
+      <span class="acc-toggle" aria-hidden="true"></span>
+    </button>
+
+    <button class="acc-row" id="acc-spacing" role="switch" aria-checked="false">
+      <span class="acc-row-label">Spaziatura aumentata</span>
+      <span class="acc-toggle" aria-hidden="true"></span>
+    </button>
+
+  </div>
+  <div class="acc-footer">
+    Conforme WCAG 2.2 — Calipso Web Agency
   </div>
 </div>
 
@@ -923,6 +1093,96 @@ if(!isTouch){
   document.getElementById('ckNo').addEventListener('click',()=>{
     localStorage.setItem('ck_consent','technical');
     ck.classList.remove('show');
+  });
+})();
+
+/* ── ACCESSIBILITY WIDGET ── */
+(function(){
+  const btn = document.getElementById('acc-btn');
+  const panel = document.getElementById('acc-panel');
+  const resetBtn = document.getElementById('acc-reset-btn');
+
+  // Toggle panel
+  btn.addEventListener('click', () => {
+    const isOpen = panel.classList.contains('open');
+    panel.classList.toggle('open', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    panel.setAttribute('aria-hidden', String(isOpen));
+  });
+
+  // Close on outside click
+  document.addEventListener('click', e => {
+    if (!btn.contains(e.target) && !panel.contains(e.target)) {
+      panel.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      panel.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && panel.classList.contains('open')) {
+      panel.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      panel.setAttribute('aria-hidden', 'true');
+      btn.focus();
+    }
+  });
+
+  // Toggle helper
+  function makeToggle(btnId, bodyClass, storageKey) {
+    const el = document.getElementById(btnId);
+    const saved = localStorage.getItem(storageKey) === '1';
+    if (saved) { el.classList.add('active'); el.setAttribute('aria-checked','true'); document.body.classList.add(bodyClass); }
+    el.addEventListener('click', () => {
+      const on = el.classList.toggle('active');
+      el.setAttribute('aria-checked', String(on));
+      document.body.classList.toggle(bodyClass, on);
+      localStorage.setItem(storageKey, on ? '1' : '0');
+    });
+    return el;
+  }
+
+  makeToggle('acc-contrast',  'acc-high-contrast', 'acc_contrast');
+  makeToggle('acc-links',     'acc-links',          'acc_links');
+  makeToggle('acc-anim',      'acc-no-anim',        'acc_anim');
+  makeToggle('acc-dyslexia',  'acc-dyslexia',       'acc_dyslexia');
+  makeToggle('acc-spacing',   'acc-spacing',        'acc_spacing');
+
+  // Font size stepper
+  const fontSizes = [100, 110, 120, 135, 150];
+  let fontIdx = parseInt(localStorage.getItem('acc_fontidx') || '0');
+  const valEl = document.getElementById('acc-font-val');
+
+  function applyFontSize(idx) {
+    document.documentElement.style.fontSize = (fontSizes[idx] / 100 * 18) + 'px';
+    valEl.textContent = fontSizes[idx] + '%';
+    localStorage.setItem('acc_fontidx', idx);
+  }
+  applyFontSize(fontIdx);
+
+  document.getElementById('acc-font-up').addEventListener('click', () => {
+    if (fontIdx < fontSizes.length - 1) applyFontSize(++fontIdx);
+  });
+  document.getElementById('acc-font-down').addEventListener('click', () => {
+    if (fontIdx > 0) applyFontSize(--fontIdx);
+  });
+
+  // Reset all
+  resetBtn.addEventListener('click', () => {
+    ['acc_contrast','acc_links','acc_anim','acc_dyslexia','acc_spacing'].forEach(k => localStorage.removeItem(k));
+    ['acc-contrast','acc-links','acc-anim','acc-dyslexia','acc-spacing'].forEach(id => {
+      const el = document.getElementById(id);
+      el.classList.remove('active');
+      el.setAttribute('aria-checked','false');
+    });
+    ['acc-high-contrast','acc-links','acc-no-anim','acc-dyslexia','acc-spacing'].forEach(c => document.body.classList.remove(c));
+    fontIdx = 0;
+    applyFontSize(0);
+    localStorage.removeItem('acc_fontidx');
   });
 })();
 </script>
