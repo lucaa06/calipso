@@ -72,6 +72,8 @@ body{background:var(--bg);color:var(--ink);font-family:'Cormorant Garamond',seri
   body{cursor:auto;}
   .cur-d,.cur-r,.cur-l{display:none!important;}
   a,button,.svc-row,.gc,.step,.dl-item,.faq-item,.tech-cell,.faq-q,.ck-ok,.ck-no{cursor:pointer;}
+  /* gc: linea rossa sempre visibile su touch */
+  .gc::before{height:100%!important;}
 }
 
 /* ── PRELOADER ── */
@@ -356,6 +358,12 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
   /* Cursor mobile: forza default su elementi interattivi */
   a,button,.svc-row,.gc,.step,.dl-item,.faq-item,.tech-cell,.faq-q,.ck-ok,.ck-no{cursor:pointer;}
 
+  /* Tap su svc-row: mostra fill rosso e schiarisci il testo */
+  .svc-row:hover .svc-fill,.svc-row:active .svc-fill{transform:scaleY(1);}
+  .svc-row:hover .svc-n,.svc-row:active .svc-n{color:rgba(255,255,255,.55)!important;}
+  .svc-row:hover .svc-name,.svc-row:active .svc-name{color:#fff!important;}
+  .svc-row:hover .svc-desc,.svc-row:active .svc-desc{color:rgba(255,255,255,.78)!important;}
+
   /* Nav */
   nav{padding-top:1.2rem;padding-bottom:1.2rem;}
   .n-links a:not(.n-cta){display:none;}
@@ -382,12 +390,15 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
 
   /* Services */
   .svc-h{padding:3.5rem 1.4rem 2.2rem;flex-direction:column;align-items:flex-start;gap:.6rem;}
-  .svc-in{grid-template-columns:52px 1fr;gap:.7rem;padding:1.6rem 1.4rem;}
+  .svc-in{grid-template-columns:52px 1fr;grid-template-rows:auto auto;gap:.4rem .7rem;padding:1.4rem 1.4rem;align-items:start;}
   .svc-row:hover .svc-in{padding-left:1.4rem;}
-  /* svc-desc e svc-arr visibili sempre su touch */
-  .svc-desc{display:block;opacity:1!important;transform:none!important;color:var(--muted)!important;font-size:1rem;}
-  .svc-arr{display:block;opacity:1!important;transform:none!important;color:var(--muted)!important;}
-  .svc-name{font-size:clamp(1.8rem,7vw,4rem);}
+  /* svc-n e svc-name: prima riga */
+  .svc-n{grid-column:1;grid-row:1;align-self:center;}
+  .svc-name{grid-column:2;grid-row:1;font-size:clamp(1.8rem,7vw,4rem);}
+  /* svc-desc: seconda riga, larghezza piena */
+  .svc-desc{grid-column:1/-1;grid-row:2;display:block;opacity:1!important;transform:none!important;color:var(--muted)!important;font-size:.92rem;padding-top:.2rem;}
+  /* svc-arr: nascosto su mobile per pulizia */
+  .svc-arr{display:none!important;}
 
   /* Process */
   .process{grid-template-columns:1fr;gap:3.5rem;padding:5rem 1.4rem;}
@@ -837,7 +848,9 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
   </div>
 </footer>
 
-<!-- COOKIE BANNER -->
+</div><!-- /site -->
+
+<!-- COOKIE BANNER (fuori da #site per evitare stacking context opacity) -->
 <div id="ck">
   <p class="ck-txt"><strong>Cookie tecnici</strong> — Questo sito usa solo cookie tecnici necessari. GitHub Pages raccoglie log di accesso (IP, browser) per finalità di sicurezza. Nessun tracciamento pubblicitario. <a href="cookie.html">Cookie Policy</a> · <a href="privacy.html">Privacy Policy</a></p>
   <div class="ck-btns">
@@ -845,8 +858,6 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
     <button class="ck-ok" id="ckOk">Accetta</button>
   </div>
 </div>
-
-</div><!-- /site -->
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── PRELOADER ── */
