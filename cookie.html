@@ -11,11 +11,11 @@
 <style>
 :root{--bg:#F4EFE6;--ink:#0D0A08;--muted:#5C5248;--red:#A21A2D;--line:rgba(13,10,8,0.1);--ink2:#1E1712;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{font-size:18px;}
+html{font-size:20px;}
 body{background:var(--bg);color:var(--ink);font-family:'Cormorant Garamond',serif;line-height:1.75;}
 nav{display:flex;align-items:center;justify-content:space-between;padding:2rem 5rem;border-bottom:1px solid var(--line);}
 .nlogo{display:flex;align-items:center;gap:.9rem;text-decoration:none;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);}
-.nlogo svg{width:26px;}
+.nlogo img{width:26px;}
 .nback{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s;display:flex;align-items:center;gap:.6rem;}
 .nback:hover{color:var(--red);}
 .wrap{max-width:780px;margin:0 auto;padding:6rem 2rem 8rem;}
@@ -49,9 +49,7 @@ footer-pg{display:block;text-align:center;padding:3rem;border-top:1px solid var(
 <body>
 <nav>
   <a class="nlogo" href="index.html">
-    <svg viewBox="265 42 140 290" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#A21A2D" d="M334.3 48.8C339.8 48.4 355.3 52.8 357.7 66.4 340 63.6 350.5 65.3 365.9 75 380.8 77.1 392.6 94.2 381.7 84.8 360 81.4 378 85.4 394.5 104.3 397.9 120.5 384.3 120.2 388.4 106.1 380.5 105.6 391.1 133.2 385 148.9 381.6 137 361.4 97.9 351.6 126.5 361.9 100.1 370.4 132.4 380.5 182.3 394.9 208.5 375.3 193.9 368.4 219.9 396.7 269.3 372.8 241 376.2 287.5 355.8 321.9 342.3 272.1 313.5 169.8 323.7 88.1 318.8 60.3 326.2 53.4 334.3 48.8Z"/>
-    </svg>
+    <img src="logo.svg" alt="Calipso">
     Calipso
   </a>
   <a class="nback" href="index.html">← Torna al sito</a>
@@ -117,5 +115,6 @@ footer-pg{display:block;text-align:center;padding:3rem;border-top:1px solid var(
 </div>
 
 <footer-pg>© 2026 Calipso Web Agency — Genova, Italia</footer-pg>
+<script src="a11y.js"></script>
 </body>
 </html>
