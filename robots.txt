@@ -1,8 +1,8 @@
 User-agent: *
 Allow: /
 
-Disallow: /calipso/privacy.html
-Disallow: /calipso/cookie.html
-Disallow: /calipso/404.html
+Disallow: /privacy.html
+Disallow: /cookie.html
+Disallow: /404.html
 
-Sitemap: https://lucaa06.github.io/calipso/sitemap.xml
+Sitemap: https://www.calipsowebagency.it/sitemap.xml
