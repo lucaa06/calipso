@@ -1,0 +1,31 @@
+# Calipso Web Agency
+
+> Global web agency based in Genova, Italy. We build fast, scalable, legally compliant websites for businesses worldwide.
+
+## About
+
+Calipso is a professional web agency with its legal seat in Genova, Italy (Liguria). We design and develop high-performance websites for clients across Europe, North America, and globally. Our work covers web design, web development, international SEO, e-commerce, GDPR compliance, AI search optimization, and digital infrastructure.
+
+## Services
+
+- **Web Design & Development**: Custom websites built with HTML5, CSS, JavaScript, React, Next.js
+- **International SEO & AI Search**: Optimization for Google, ChatGPT, Gemini, Perplexity. Multilingual SEO, hreflang, Schema.org, GEO
+- **E-Commerce**: Multi-currency checkout, global tax compliance (OSS/IOSS), international shipping
+- **Security & Infrastructure**: Cloudflare CDN/WAF, 2FA, distributed backups, 24/7 monitoring
+- **Privacy & Legal (GDPR)**: Cookie banners, Privacy Policy, Cookie Policy compliant with EU regulation
+- **AI & Innovation**: LLM chatbots, RAG systems, AI search optimization
+
+## Legal & Contact
+
+- **Legal seat**: Genova, Italy (Liguria, IT-GE)
+- **Serving**: Clients worldwide — remote process
+- **Email**: genovaagencydesign@gmail.com
+- **Website**: https://calipsowebagency.it/
+
+## Languages
+
+Available in: Italian (IT), English (EN), Spanish (ES), French (FR), German (DE)
+
+## Compliance
+
+GDPR compliant (European Union General Data Protection Regulation). Site hosted on GitHub Pages (GitHub, Inc., San Francisco, CA, USA).

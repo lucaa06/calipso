@@ -1,9 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.calipsowebagency.it/</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://calipsowebagency.it/</loc>
+    <xhtml:link rel="alternate" hreflang="it"      href="https://calipsowebagency.it/"/>
+    <xhtml:link rel="alternate" hreflang="en"      href="https://calipsowebagency.it/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="en-US"   href="https://calipsowebagency.it/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="en-GB"   href="https://calipsowebagency.it/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="en-AU"   href="https://calipsowebagency.it/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="en-CA"   href="https://calipsowebagency.it/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es"      href="https://calipsowebagency.it/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es-ES"   href="https://calipsowebagency.it/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="es-MX"   href="https://calipsowebagency.it/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="fr"      href="https://calipsowebagency.it/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR"   href="https://calipsowebagency.it/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="de"      href="https://calipsowebagency.it/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="de-DE"   href="https://calipsowebagency.it/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calipsowebagency.it/"/>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://calipsowebagency.it/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calipsowebagency.it/privacy.html"/>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://calipsowebagency.it/cookie.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calipsowebagency.it/cookie.html"/>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
