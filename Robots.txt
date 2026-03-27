@@ -2,45 +2,131 @@ User-agent: *
 Allow: /
 Disallow: /cdn-cgi/
 
-# AI Search Bots — allowed
+# AI Search Bots & LLM Crawlers
 User-agent: GPTBot
 Allow: /
-
 User-agent: ChatGPT-User
 Allow: /
-
 User-agent: anthropic-ai
 Allow: /
-
 User-agent: ClaudeBot
 Allow: /
-
 User-agent: PerplexityBot
 Allow: /
-
 User-agent: Google-Extended
 Allow: /
-
 User-agent: CCBot
 Allow: /
-
 User-agent: Omgilibot
 Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: meta-externalagent
+Allow: /
+User-agent: facebookexternalhit
+Allow: /
+User-agent: Bytespider
+Allow: /
+User-agent: Cohere-ai
+Allow: /
+User-agent: Diffbot
+Allow: /
+User-agent: PetalBot
+Allow: /
+User-agent: img2dataset
+Allow: /
 
-# Standard crawlers
+# Standard & Global Search Engine Crawlers
 User-agent: Googlebot
 Allow: /
-
 User-agent: Bingbot
 Allow: /
-
 User-agent: Baiduspider
 Allow: /
-
 User-agent: YandexBot
 Allow: /
-
 User-agent: DuckDuckBot
+Allow: /
+User-agent: slurp
+Allow: /
+User-agent: Sogou-web-spider
+Allow: /
+User-agent: Exabot
+Allow: /
+User-agent: SeznamBot
+Allow: /
+User-agent: Qwantify
+Allow: /
+User-agent: ia_archiver
+Allow: /
+
+# SEO Tools & Web Scrapers
+User-agent: AhrefsBot
+Allow: /
+User-agent: SemrushBot
+Allow: /
+User-agent: MJ12bot
+Allow: /
+User-agent: DotBot
+Allow: /
+User-agent: Rogerbot
+Allow: /
+User-agent: BLEXBot
+Allow: /
+User-agent: MegaIndex.ru
+Allow: /
+User-agent: Serpstatbot
+Allow: /
+User-agent: Pinterestbot
 Allow: /
 
 Sitemap: https://calipsowebagency.it/sitemap.xml
+# ═══ OTTIMIZZAZIONE CRAWL BUDGET & SICUREZZA ═══
+
+# Blocca le cartelle di sistema (adatta se usi WordPress o altro CMS)
+
+Disallow: /wp-admin/
+
+Disallow: /wp-includes/
+
+Allow: /wp-admin/admin-ajax.php
+
+
+
+# Blocca le pagine dei risultati di ricerca interna (evita contenuti duplicati)
+
+Disallow: /?s=
+
+Disallow: /search/
+
+
+
+# Blocca URL parametrici inutili per la SEO
+
+Disallow: /*?replytocom
+
+Disallow: /*?filter=
+
+Disallow: /*?sort=
+
+
+
+# Evita l'indicizzazione diretta di file PDF o documenti (se vuoi che atterrino solo sulle pagine web)
+
+# Disallow: /*.pdf$
+
+# Disallow: /*.doc$
+
+
+
+# ═══ GESTIONE DEL CARICO DEL SERVER ═══
+
+# Indica ai crawler più aggressivi (come Yandex o Bing) di fare una pausa tra una pagina e l'altra
+
+Crawl-delay: 10
