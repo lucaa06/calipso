@@ -16,154 +16,57 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "@id": "https://calipsowebagency.it/#faq",
-  "mainEntity": [{
-    "@type": "Question",
-    "name": "Quanto costa siti web Genova?",
-    "acceptedAnswer": { "@type": "Answer", "text": "Da €500 landing page Genova, €2000+ e-commerce locali. Preventivo gratis." }
-  }, {
-    "@type": "Question",
-    "name": "Do you work with clients outside Italy?",
-    "acceptedAnswer": { "@type": "Answer", "text": "Absolutely — it is our primary model. We are based in Genova, Italy, but serve clients across Europe, North America, the Middle East and beyond. Our process is fully remote." }
-  }, {
-    "@type": "Question",
-    "name": "Will my website be GDPR compliant?",
-    "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every site includes Privacy Policy, Cookie Policy, and a cookie banner compliant with European GDPR — recognized globally as the gold standard." }
-  }, {
-    "@type": "Question",
-    "name": "How much does a website cost?",
-    "acceptedAnswer": { "@type": "Answer", "text": "The cost depends on project complexity. Contact us for a free, transparent quote based on your real needs." }
-  }, {
-    "@type": "Question",
-    "name": "How long does it take to build a website?",
-    "acceptedAnswer": { "@type": "Answer", "text": "An institutional site takes 3–5 weeks. An e-commerce or complex project takes 6–10 weeks. We always provide a precise timeline before starting." }
-  }]
-}
-</script>
-
-<!-- 2. Organization + WebSite + Breadcrumb (MIGLIORATO con campi mancanti) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@graph":[
+  "@graph": [
     {
-      "@type":"ProfessionalService",
-      "@id":"https://calipsowebagency.it/#organization",
-      "name":"Calipso Web Agency",
-      "description":"Global web agency based in Genova, Italy. We build fast, scalable, legally compliant websites for businesses worldwide — SEO, e-commerce, AI optimization.",
-      "url":"https://calipsowebagency.it/",
-      "telephone": "+390101234567",
-      "image": "https://calipsowebagency.it/og-image.jpg",
-      "priceRange": "€500-€5000+",
-      "email":"genovaagencydesign@gmail.com",
-      "address":{
-        "@type":"PostalAddress",
-        "addressLocality":"Genova",
-        "addressRegion":"Liguria",
-        "postalCode":"16100",
-        "addressCountry":"IT"
+      "@type": "LocalBusiness",
+      "@id": "https://calipsowebagency.it/#organization",
+      "name": "Calipso Web Agency",
+      "image": "https://calipsowebagency.it/logo.png",
+      "url": "https://calipsowebagency.it/",
+      "telephone": "+390000000000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Il tuo indirizzo qui",
+        "addressLocality": "Genova",
+        "postalCode": "16100",
+        "addressRegion": "GE",
+        "addressCountry": "IT"
       },
-      "areaServed":"Worldwide",
-      "availableLanguage":["Italian","English","Spanish","French","German"],
-      "serviceType":["Web Design","Web Development","SEO","International SEO","E-commerce","AI Optimization","GDPR Compliance","PWA Development"],
-      "sameAs":[
-        "https://github.com/lucaa06/calipso"
-      ],
-      "knowsAbout":["Web Design","Web Development","SEO","AI Search Optimization","GDPR","E-commerce","React","Next.js","Accessibility","Core Web Vitals"]
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 44.4056,
+        "longitude": 8.9463
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://www.instagram.com/tuoprofilo"
+      ]
     },
     {
-      "@type":"WebSite",
-      "@id":"https://calipsowebagency.it/#website",
-      "url":"https://calipsowebagency.it/",
-      "name":"Calipso Web Agency",
-      "publisher":{"@id":"https://calipsowebagency.it/#organization"},
-      "inLanguage":["it","en","es","fr","de"],
-      "potentialAction":{
-        "@type":"SearchAction",
-        "target":"https://calipsowebagency.it/?s={search_term_string}",
-        "query-input":"required name=search_term_string"
-      }
+      "@type": "WebSite",
+      "@id": "https://calipsowebagency.it/#website",
+      "url": "https://calipsowebagency.it/",
+      "name": "Calipso Web Agency"
     },
     {
-      "@type":"BreadcrumbList",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://calipsowebagency.it/"},
-        {"@type":"ListItem","position":2,"name":"Services","item":"https://calipsowebagency.it/#servizi"},
-        {"@type":"ListItem","position":3,"name":"Process","item":"https://calipsowebagency.it/#processo"},
-        {"@type":"ListItem","position":4,"name":"FAQ","item":"https://calipsowebagency.it/#faq"},
-        {"@type":"ListItem","position":5,"name":"Contact","item":"https://calipsowebagency.it/#contatti"}
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Esempio di domanda?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Esempio di risposta."
+          }
+        }
       ]
     }
   ]
-}
-</script>
-
-<!-- 3. WebPage (invariato) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Calipso Web Agency Globale",
-  "speakable": {
-    "@type": "SpeakableSpecification",
-    "cssSelector": [".hl1", ".hl2", ".h-sub", ".intro-txt"]
-  },
-  "url": "https://calipsowebagency.it/"
-}
-</script>
-
-<!-- 4. ProfessionalService Italia MIGLIORATO (aggiunto priceRange) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Calipso Web Agency",
-  "image": "https://calipsowebagency.it/og-image.jpg",
-  "@id": "https://calipsowebagency.it/#service-italia",
-  "url": "https://calipsowebagency.it/",
-  "telephone": "+390101234567",
-  "priceRange": "€500-€5000+",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Genova",
-    "addressRegion": "Liguria",
-    "addressCountry": "IT"
-  },
-  "areaServed": [
-    {"@type": "AdministrativeArea", "name": "Abruzzo"},
-    {"@type": "AdministrativeArea", "name": "Basilicata"},
-    {"@type": "AdministrativeArea", "name": "Calabria"},
-    {"@type": "AdministrativeArea", "name": "Campania"},
-    {"@type": "AdministrativeArea", "name": "Emilia-Romagna"},
-    {"@type": "AdministrativeArea", "name": "Friuli-Venezia Giulia"},
-    {"@type": "AdministrativeArea", "name": "Lazio"},
-    {"@type": "AdministrativeArea", "name": "Liguria"},
-    {"@type": "AdministrativeArea", "name": "Lombardia"},
-    {"@type": "AdministrativeArea", "name": "Marche"},
-    {"@type": "AdministrativeArea", "name": "Molise"},
-    {"@type": "AdministrativeArea", "name": "Piemonte"},
-    {"@type": "AdministrativeArea", "name": "Puglia"},
-    {"@type": "AdministrativeArea", "name": "Sardegna"},
-    {"@type": "AdministrativeArea", "name": "Sicilia"},
-    {"@type": "AdministrativeArea", "name": "Toscana"},
-    {"@type": "AdministrativeArea", "name": "Trentino-Alto Adige"},
-    {"@type": "AdministrativeArea", "name": "Umbria"},
-    {"@type": "AdministrativeArea", "name": "Valle d'Aosta"},
-    {"@type": "AdministrativeArea", "name": "Veneto"},
-    {"@type": "Country", "name": "United States"},
-    {"@type": "Country", "name": "United Kingdom"},
-    {"@type": "Country", "name": "France"},
-    {"@type": "Country", "name": "Germany"},
-    {"@type": "Country", "name": "Spain"}
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+390101234567",
-    "contactType": "customer service",
-    "areaServed": "IT",
-    "availableLanguage": ["Italian", "English", "French", "Spanish", "German"]
-  }
 }
 </script>
 <!-- ═══ PRIMARY META ═══ -->
