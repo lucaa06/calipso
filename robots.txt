@@ -1,46 +1,8 @@
 User-agent: *
 Allow: /
-Disallow: /cdn-cgi/
 
-# AI Search Bots — allowed
-User-agent: GPTBot
-Allow: /
+Disallow: /calipso/privacy.html
+Disallow: /calipso/cookie.html
+Disallow: /calipso/404.html
 
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-User-agent: Omgilibot
-Allow: /
-
-# Standard crawlers
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-Sitemap: https://calipsowebagency.it/sitemap.xml
+Sitemap: https://lucaa06.github.io/calipso/sitemap.xml
