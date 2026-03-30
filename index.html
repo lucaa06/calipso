@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calipso web agency globale </title>
+<title>Calipso — Web Agency Globale | Siti Web Professionali</title>
 <meta name="DC.title" content="Calipso Web Agency - Global Services">
 <meta name="DC.creator" content="Calipso Web Agency">
 <meta name="DC.subject" content="Web Design, SEO, AI Optimization, International E-commerce">
@@ -12,7 +12,7 @@
 <meta name="DC.language" content="it, en, es, fr, de">
 <meta name="DC.coverage" content="World">
 
-<!-- 1. FAQPage UNIFICATO (problema duplicato risolto) -->
+<!-- ═══ SCHEMA.ORG — unico blocco unificato (duplicato rimosso) ═══ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -21,7 +21,7 @@
       "@type": "ProfessionalService",
       "@id": "https://calipsowebagency.it/#organization",
       "name": "Calipso Web Agency",
-      "description": "Global web agency based in Genova, Italy. We build fast, scalable, legally compliant websites for businesses worldwide.",
+      "description": "Global web agency based in Genova, Italy. We build fast, scalable, legally compliant websites for businesses worldwide — SEO, e-commerce, AI optimization.",
       "url": "https://calipsowebagency.it/",
       "logo": "https://calipsowebagency.it/logo.png",
       "image": "https://calipsowebagency.it/og-image.jpg",
@@ -40,6 +40,8 @@
       },
       "areaServed": "Worldwide",
       "availableLanguage": ["Italian", "English", "Spanish", "French", "German"],
+      "serviceType": ["Web Design","Web Development","SEO","International SEO","E-commerce","AI Optimization","GDPR Compliance","PWA Development"],
+      "knowsAbout": ["Web Design","SEO","AI Search Optimization","GDPR","E-commerce","React","Next.js","Core Web Vitals"],
       "sameAs": [
         "https://github.com/lucaa06/calipso",
         "https://www.instagram.com/webagencygenova"
@@ -51,7 +53,12 @@
       "url": "https://calipsowebagency.it/",
       "name": "Calipso Web Agency",
       "publisher": { "@id": "https://calipsowebagency.it/#organization" },
-      "inLanguage": ["it", "en", "es", "fr", "de"]
+      "inLanguage": ["it", "en", "es", "fr", "de"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://calipsowebagency.it/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     },
     {
       "@type": "FAQPage",
@@ -60,34 +67,22 @@
         {
           "@type": "Question",
           "name": "Do you work with clients outside Italy?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely — it is our primary model. We are based in Genova, Italy, but serve clients across Europe, North America, the Middle East and beyond. Our process is fully remote."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "Absolutely — it is our primary model. We are based in Genova, Italy, but serve clients across Europe, North America, the Middle East and beyond. Our process is fully remote." }
         },
         {
           "@type": "Question",
           "name": "Will my website be GDPR compliant?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Every site includes Privacy Policy, Cookie Policy, and a cookie banner compliant with European GDPR — recognized globally as the gold standard."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every site includes Privacy Policy, Cookie Policy, and a cookie banner compliant with European GDPR — recognized globally as the gold standard." }
         },
         {
           "@type": "Question",
           "name": "How much does a website cost?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The cost depends on project complexity. Contact us for a free, transparent quote based on your real needs."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "The cost depends on project complexity. Contact us for a free, transparent quote based on your real needs." }
         },
         {
           "@type": "Question",
           "name": "How long does it take to build a website?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "An institutional site takes 3–5 weeks. An e-commerce or complex project takes 6–10 weeks. We always provide a precise timeline before starting."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "An institutional site takes 3–5 weeks. An e-commerce or complex project takes 6–10 weeks. We always provide a precise timeline before starting." }
         }
       ]
     },
@@ -95,16 +90,17 @@
       "@type": "BreadcrumbList",
       "@id": "https://calipsowebagency.it/#breadcrumbs",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://calipsowebagency.it/" },
+        { "@type": "ListItem", "position": 1, "name": "Home",     "item": "https://calipsowebagency.it/" },
         { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://calipsowebagency.it/#servizi" },
-        { "@type": "ListItem", "position": 3, "name": "Process", "item": "https://calipsowebagency.it/#processo" },
-        { "@type": "ListItem", "position": 4, "name": "FAQ", "item": "https://calipsowebagency.it/#faq" },
-        { "@type": "ListItem", "position": 5, "name": "Contact", "item": "https://calipsowebagency.it/#contatti" }
+        { "@type": "ListItem", "position": 3, "name": "Process",  "item": "https://calipsowebagency.it/#processo" },
+        { "@type": "ListItem", "position": 4, "name": "FAQ",      "item": "https://calipsowebagency.it/#faq" },
+        { "@type": "ListItem", "position": 5, "name": "Contact",  "item": "https://calipsowebagency.it/#contatti" }
       ]
     }
   ]
 }
 </script>
+
 <!-- ═══ PRIMARY META ═══ -->
 <meta name="description" content="Calipso è una web agency globale con sede a Genova, Italia. Progettiamo siti web performanti, legali e ottimizzati per la ricerca AI per clienti in tutto il mondo.">
 <meta name="keywords" content="web agency globale, web agency internazionale, siti web professionali, web design, SEO internazionale, e-commerce globale, sviluppo web, GDPR, AI optimization, web agency genova, global web agency, international web design, professional websites worldwide">
@@ -113,42 +109,42 @@
 <meta name="googlebot" content="index, follow">
 <link rel="canonical" href="https://calipsowebagency.it/">
 
-<!-- ═══ HREFLANG — INTERNATIONAL SEO ═══ -->
-<link rel="alternate" hreflang="it"    href="https://calipsowebagency.it/">
-<link rel="alternate" hreflang="it-IT" href="https://calipsowebagency.it/">
-<link rel="alternate" hreflang="en"    href="https://calipsowebagency.it/?lang=en">
-<link rel="alternate" hreflang="en-US" href="https://calipsowebagency.it/?lang=en">
-<link rel="alternate" hreflang="en-GB" href="https://calipsowebagency.it/?lang=en">
-<link rel="alternate" hreflang="en-AU" href="https://calipsowebagency.it/?lang=en">
-<link rel="alternate" hreflang="en-CA" href="https://calipsowebagency.it/?lang=en">
-<link rel="alternate" hreflang="es"    href="https://calipsowebagency.it/?lang=es">
-<link rel="alternate" hreflang="es-ES" href="https://calipsowebagency.it/?lang=es">
-<link rel="alternate" hreflang="es-MX" href="https://calipsowebagency.it/?lang=es">
-<link rel="alternate" hreflang="es-AR" href="https://calipsowebagency.it/?lang=es">
-<link rel="alternate" hreflang="fr"    href="https://calipsowebagency.it/?lang=fr">
-<link rel="alternate" hreflang="fr-FR" href="https://calipsowebagency.it/?lang=fr">
-<link rel="alternate" hreflang="fr-BE" href="https://calipsowebagency.it/?lang=fr">
-<link rel="alternate" hreflang="de"    href="https://calipsowebagency.it/?lang=de">
-<link rel="alternate" hreflang="de-DE" href="https://calipsowebagency.it/?lang=de">
-<link rel="alternate" hreflang="de-AT" href="https://calipsowebagency.it/?lang=de">
+<!-- ═══ HREFLANG — unico blocco (duplicato rimosso) ═══ -->
 <link rel="alternate" hreflang="x-default" href="https://calipsowebagency.it/">
+<link rel="alternate" hreflang="it"         href="https://calipsowebagency.it/">
+<link rel="alternate" hreflang="it-IT"      href="https://calipsowebagency.it/">
+<link rel="alternate" hreflang="en"         href="https://calipsowebagency.it/?lang=en">
+<link rel="alternate" hreflang="en-US"      href="https://calipsowebagency.it/?lang=en">
+<link rel="alternate" hreflang="en-GB"      href="https://calipsowebagency.it/?lang=en">
+<link rel="alternate" hreflang="en-AU"      href="https://calipsowebagency.it/?lang=en">
+<link rel="alternate" hreflang="en-CA"      href="https://calipsowebagency.it/?lang=en">
+<link rel="alternate" hreflang="es"         href="https://calipsowebagency.it/?lang=es">
+<link rel="alternate" hreflang="es-ES"      href="https://calipsowebagency.it/?lang=es">
+<link rel="alternate" hreflang="es-MX"      href="https://calipsowebagency.it/?lang=es">
+<link rel="alternate" hreflang="es-AR"      href="https://calipsowebagency.it/?lang=es">
+<link rel="alternate" hreflang="fr"         href="https://calipsowebagency.it/?lang=fr">
+<link rel="alternate" hreflang="fr-FR"      href="https://calipsowebagency.it/?lang=fr">
+<link rel="alternate" hreflang="fr-BE"      href="https://calipsowebagency.it/?lang=fr">
+<link rel="alternate" hreflang="de"         href="https://calipsowebagency.it/?lang=de">
+<link rel="alternate" hreflang="de-DE"      href="https://calipsowebagency.it/?lang=de">
+<link rel="alternate" hreflang="de-AT"      href="https://calipsowebagency.it/?lang=de">
 
 <!-- ═══ OPEN GRAPH ═══ -->
-<meta property="og:type"        content="website">
-<meta property="og:url"         content="https://calipsowebagency.it/">
-<meta property="og:title"       content="Calipso Global Web Agency">
-<meta property="og:description" content="Web agency globale con sede a Genova, Italia. Siti web performanti, legali e ottimizzati per la ricerca AI per clienti in tutto il mondo.">
-<meta property="og:site_name"   content="Calipso Web Agency">
-<meta property="og:locale"      content="it_IT">
-<meta property="og:locale:alternate" content="en_US">
-<meta property="og:locale:alternate" content="en_GB">
-<meta property="og:locale:alternate" content="es_ES">
-<meta property="og:locale:alternate" content="fr_FR">
-<meta property="og:locale:alternate" content="de_DE">
-<meta property="og:image"       content="https://calipsowebagency.it/og-image.jpg">
-<meta property="og:image:width"  content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt"    content="Calipso Global Web Agency">
+<meta property="og:type"                 content="website">
+<meta property="og:url"                  content="https://calipsowebagency.it/">
+<meta property="og:title"                content="Calipso Global Web Agency">
+<meta property="og:description"          content="Web agency globale con sede a Genova, Italia. Siti web performanti, legali e ottimizzati per la ricerca AI per clienti in tutto il mondo.">
+<meta property="og:site_name"            content="Calipso Web Agency">
+<meta property="og:locale"               content="it_IT">
+<meta property="og:locale:alternate"     content="en_US">
+<meta property="og:locale:alternate"     content="en_GB">
+<meta property="og:locale:alternate"     content="es_ES">
+<meta property="og:locale:alternate"     content="fr_FR">
+<meta property="og:locale:alternate"     content="de_DE">
+<meta property="og:image"                content="https://calipsowebagency.it/og-image.jpg">
+<meta property="og:image:width"          content="1200">
+<meta property="og:image:height"         content="630">
+<meta property="og:image:alt"            content="Calipso Global Web Agency">
 
 <!-- ═══ TWITTER / X ═══ -->
 <meta name="twitter:card"        content="summary_large_image">
@@ -156,204 +152,104 @@
 <meta name="twitter:description" content="We build fast, scalable websites for businesses worldwide. Based in Genova, Italy.">
 <meta name="twitter:image"       content="https://calipsowebagency.it/og-image.jpg">
 
-<!-- ═══ geolocalizzation/hreflang ═══ -->
-<link rel="alternate" hreflang="x-default" href="https://www.calipsowebagency.it/" />
-<link rel="alternate" hreflang="it" href="https://www.calipsowebagency.it/" />
-<link rel="alternate" hreflang="it-it" href="https://www.calipsowebagency.it/" />
-<link rel="alternate" hreflang="it-ch" href="https://www.calipsowebagency.it/it-ch/" /> <link rel="alternate" hreflang="en" href="https://www.calipsowebagency.it/en/" /> <link rel="alternate" hreflang="en-us" href="https://www.calipsowebagency.it/en-us/" /> <link rel="alternate" hreflang="en-gb" href="https://www.calipsowebagency.it/en-gb/" /> <link rel="alternate" hreflang="en-ca" href="https://www.calipsowebagency.it/en-ca/" /> <link rel="alternate" hreflang="en-au" href="https://www.calipsowebagency.it/en-au/" /> <link rel="alternate" hreflang="en-in" href="https://www.calipsowebagency.it/en-in/" /> <link rel="alternate" hreflang="en-za" href="https://www.calipsowebagency.it/en-za/" /> <link rel="alternate" hreflang="es" href="https://www.calipsowebagency.it/es/" /> <link rel="alternate" hreflang="es-es" href="https://www.calipsowebagency.it/es-es/" /> <link rel="alternate" hreflang="es-mx" href="https://www.calipsowebagency.it/es-mx/" /> <link rel="alternate" hreflang="es-ar" href="https://www.calipsowebagency.it/es-ar/" /> <link rel="alternate" hreflang="es-co" href="https://www.calipsowebagency.it/es-co/" /> <link rel="alternate" hreflang="es-cl" href="https://www.calipsowebagency.it/es-cl/" /> <link rel="alternate" hreflang="fr" href="https://www.calipsowebagency.it/fr/" /> <link rel="alternate" hreflang="fr-fr" href="https://www.calipsowebagency.it/fr-fr/" /> <link rel="alternate" hreflang="fr-ca" href="https://www.calipsowebagency.it/fr-ca/" /> <link rel="alternate" hreflang="fr-ch" href="https://www.calipsowebagency.it/fr-ch/" /> <link rel="alternate" hreflang="fr-be" href="https://www.calipsowebagency.it/fr-be/" /> <link rel="alternate" hreflang="de" href="https://www.calipsowebagency.it/de/" /> <link rel="alternate" hreflang="de-de" href="https://www.calipsowebagency.it/de-de/" /> <link rel="alternate" hreflang="de-at" href="https://www.calipsowebagency.it/de-at/" /> <link rel="alternate" hreflang="de-ch" href="https://www.calipsowebagency.it/de-ch/" /> <link rel="alternate" hreflang="pt" href="https://www.calipsowebagency.it/pt/" /> <link rel="alternate" hreflang="pt-pt" href="https://www.calipsowebagency.it/pt-pt/" /> <link rel="alternate" hreflang="pt-br" href="https://www.calipsowebagency.it/pt-br/" /> <link rel="alternate" hreflang="nl" href="https://www.calipsowebagency.it/nl/" /> <link rel="alternate" hreflang="nl-nl" href="https://www.calipsowebagency.it/nl-nl/" /> <link rel="alternate" hreflang="nl-be" href="https://www.calipsowebagency.it/nl-be/" /> <link rel="alternate" hreflang="ru" href="https://www.calipsowebagency.it/ru/" /> <link rel="alternate" hreflang="ru-ru" href="https://www.calipsowebagency.it/ru-ru/" /> <link rel="alternate" hreflang="pl" href="https://www.calipsowebagency.it/pl/" /> <link rel="alternate" hreflang="pl-pl" href="https://www.calipsowebagency.it/pl-pl/" /> <link rel="alternate" hreflang="sv" href="https://www.calipsowebagency.it/sv/" /> <link rel="alternate" hreflang="sv-se" href="https://www.calipsowebagency.it/sv-se/" /> <link rel="alternate" hreflang="tr" href="https://www.calipsowebagency.it/tr/" /> <link rel="alternate" hreflang="tr-tr" href="https://www.calipsowebagency.it/tr-tr/" /> <link rel="alternate" hreflang="zh" href="https://www.calipsowebagency.it/zh/" /> <link rel="alternate" hreflang="zh-cn" href="https://www.calipsowebagency.it/zh-cn/" /> <link rel="alternate" hreflang="zh-tw" href="https://www.calipsowebagency.it/zh-tw/" /> <link rel="alternate" hreflang="ja" href="https://www.calipsowebagency.it/ja/" /> <link rel="alternate" hreflang="ja-jp" href="https://www.calipsowebagency.it/ja-jp/" /> <link rel="alternate" hreflang="ko" href="https://www.calipsowebagency.it/ko/" /> <link rel="alternate" hreflang="ko-kr" href="https://www.calipsowebagency.it/ko-kr/" /> <link rel="alternate" hreflang="ar" href="https://www.calipsowebagency.it/ar/" /> <link rel="alternate" hreflang="ar-ae" href="https://www.calipsowebagency.it/ar-ae/" /> <link rel="alternate" hreflang="hi" href="https://www.calipsowebagency.it/hi/" /> <link rel="alternate" hreflang="hi-in" href="https://www.calipsowebagency.it/hi-in/" /> ```
-
-
 <!-- ═══ AI BOT META ═══ -->
-<meta name="robots"          content="index, follow">
-<meta name="googlebot"       content="index, follow">
-<meta name="GPTBot"          content="index, follow">
-<meta name="PerplexityBot"   content="index, follow">
-<meta name="anthropic-ai"    content="index, follow">
-<meta name="ClaudeBot"       content="index, follow">
-<meta name="CCBot"           content="index, follow">
-<meta name="ChatGPT-User"    content="index, follow">
-
-<meta name="Google-Extended" content="index, follow">
-<meta name="OAI-SearchBot"   content="index, follow">
-<meta name="Applebot"        content="index, follow">
-<meta name="Applebot-Extended" content="index, follow">
-<meta name="Amazonbot"       content="index, follow">
-<meta name="meta-externalagent" content="index, follow">
+<meta name="GPTBot"              content="index, follow">
+<meta name="PerplexityBot"       content="index, follow">
+<meta name="anthropic-ai"        content="index, follow">
+<meta name="ClaudeBot"           content="index, follow">
+<meta name="CCBot"               content="index, follow">
+<meta name="ChatGPT-User"        content="index, follow">
+<meta name="Google-Extended"     content="index, follow">
+<meta name="OAI-SearchBot"       content="index, follow">
+<meta name="Applebot"            content="index, follow">
+<meta name="Applebot-Extended"   content="index, follow">
+<meta name="Amazonbot"           content="index, follow">
+<meta name="meta-externalagent"  content="index, follow">
 <meta name="facebookexternalhit" content="index, follow">
-<meta name="Bytespider"      content="index, follow">
-<meta name="Cohere-ai"       content="index, follow">
-<meta name="Diffbot"         content="index, follow">
-<meta name="PetalBot"        content="index, follow">
-<meta name="img2dataset"     content="index, follow">
-
-<meta name="bingbot"         content="index, follow">
-<meta name="slurp"           content="index, follow">
-<meta name="DuckDuckBot"     content="index, follow">
-<meta name="Baiduspider"     content="index, follow">
-<meta name="YandexBot"       content="index, follow">
-<meta name="Sogou-web-spider" content="index, follow">
-<meta name="Exabot"          content="index, follow">
-<meta name="SeznamBot"       content="index, follow">
-<meta name="Qwantify"        content="index, follow">
-<meta name="ia_archiver"     content="index, follow">
-
-<meta name="AhrefsBot"       content="index, follow">
-<meta name="SemrushBot"      content="index, follow">
-<meta name="MJ12bot"         content="index, follow">
-<meta name="DotBot"          content="index, follow">
-<meta name="Rogerbot"        content="index, follow">
-<meta name="BLEXBot"         content="index, follow">
-<meta name="MegaIndex.ru"    content="index, follow">
-<meta name="Serpstatbot"     content="index, follow">
-<meta name="Pinterestbot"    content="index, follow">
+<meta name="Bytespider"          content="index, follow">
+<meta name="Cohere-ai"           content="index, follow">
+<meta name="Diffbot"             content="index, follow">
+<meta name="PetalBot"            content="index, follow">
+<meta name="img2dataset"         content="index, follow">
+<meta name="bingbot"             content="index, follow">
+<meta name="slurp"               content="index, follow">
+<meta name="DuckDuckBot"         content="index, follow">
+<meta name="Baiduspider"         content="index, follow">
+<meta name="YandexBot"           content="index, follow">
+<meta name="Sogou-web-spider"    content="index, follow">
+<meta name="Exabot"              content="index, follow">
+<meta name="SeznamBot"           content="index, follow">
+<meta name="Qwantify"            content="index, follow">
+<meta name="ia_archiver"         content="index, follow">
+<meta name="AhrefsBot"           content="index, follow">
+<meta name="SemrushBot"          content="index, follow">
+<meta name="MJ12bot"             content="index, follow">
+<meta name="DotBot"              content="index, follow">
+<meta name="Rogerbot"            content="index, follow">
+<meta name="BLEXBot"             content="index, follow">
+<meta name="MegaIndex.ru"        content="index, follow">
+<meta name="Serpstatbot"         content="index, follow">
+<meta name="Pinterestbot"        content="index, follow">
 
 <!-- ═══ ADDITIONAL SEO ═══ -->
-<meta name="rating"                  content="general">
-<meta name="revisit-after"           content="7 days">
-<meta name="language"                content="multilingual">
-<meta name="target"                  content="all">
-<meta name="HandheldFriendly"        content="True">
-<meta name="MobileOptimized"         content="320">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title"   content="Calipso">
-<meta name="application-name"             content="Calipso Web Agency">
-<meta name="msapplication-TileColor"      content="#A21A2D">
-<meta name="theme-color"                  content="#A21A2D">
-
-<meta name="mobile-web-app-capable" content="yes">
+<meta name="rating"              content="general">
+<meta name="revisit-after"       content="7 days">
+<meta name="language"            content="multilingual">
+<meta name="target"              content="all">
+<meta name="HandheldFriendly"    content="True">
+<meta name="MobileOptimized"     content="320">
+<meta name="mobile-web-app-capable"                content="yes">
+<meta name="apple-mobile-web-app-capable"          content="yes">
+<meta name="apple-mobile-web-app-title"            content="Calipso">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="format-detection" content="telephone=no">
-<meta name="format-detection" content="date=no">
-<meta name="format-detection" content="address=no">
-<meta name="format-detection" content="email=no">
-<meta name="color-scheme" content="light dark">
-
-<meta name="msapplication-navbutton-color" content="#A21A2D">
-<meta name="msapplication-tap-highlight" content="no">
-<meta name="msapplication-starturl" content="/">
-<meta name="msapplication-tooltip" content="Visita Calipso Web Agency">
-
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="referrer" content="no-referrer-when-downgrade">
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-<meta name="renderer" content="webkit"> 
-
-
+<meta name="application-name"                      content="Calipso Web Agency">
+<meta name="msapplication-TileColor"               content="#A21A2D">
+<meta name="msapplication-navbutton-color"         content="#A21A2D">
+<meta name="msapplication-tap-highlight"           content="no">
+<meta name="msapplication-starturl"                content="/">
+<meta name="msapplication-tooltip"                 content="Visita Calipso Web Agency">
+<meta name="theme-color"         content="#A21A2D">
+<meta name="color-scheme"        content="light dark">
+<meta name="format-detection"    content="telephone=no">
+<meta name="referrer"            content="no-referrer-when-downgrade">
+<meta http-equiv="X-UA-Compatible"  content="IE=edge,chrome=1">
+<meta http-equiv="Cache-Control"    content="no-transform">
 
 <!-- ═══ CATEGORY / BUSINESS ═══ -->
-<meta name="category" content="UI Design, UX Design, Responsive Design, Mobile Web Design, Landing Page Design, E-commerce Design, Graphic Design, Web Interface, Visual Design, Website Redesign, Frontend Development, Backend Development, Full Stack Development, Custom Websites, Web Applications, CMS Development, WordPress Development, E-commerce Development, API Integration, HTML5 CSS3, Search Engine Optimization, Local SEO, Technical SEO, On-Page SEO, Off-Page SEO, Keyword Strategy, Link Building, SEO Audits, E-commerce SEO, International SEO, Inbound Marketing, Content Marketing, Email Marketing, Affiliate Marketing, Growth Hacking, Lead Generation, Marketing Automation, Retention Marketing, Performance Marketing, Omnichannel Marketing, Social Media Marketing, Social Media Management, Facebook Marketing, Instagram Marketing, LinkedIn Ads, TikTok Marketing, Social Strategy, Community Management, Social Listening, Influencer Marketing, PPC Management, Search Engine Marketing, Google Ads, Display Advertising, Retargeting, Remarketing, Media Buying, Conversion Rate Optimization, A/B Testing, Web Analytics, Copywriting, Web Copywriting, SEO Copywriting, Blogging, Video Marketing, Content Creation, Digital PR, Infographics, Multimedia Services, Technical Writing, Brand Strategy, Brand Identity, Logo Design, Rebranding, Corporate Identity, Digital Strategy, Market Analysis, Competitor Analysis, Brand Positioning, Naming, Web Performance, Web Security, Website Maintenance, Cloud Hosting, SSL Setup, DevOps, Database Management, Technical Support, Page Speed Optimization, Data Privacy, B2B Solutions, B2C Solutions, Digital Transformation, Corporate Websites, Startup Solutions, SaaS Marketing, Real Estate Websites, Booking Platforms, CRM Integration, E-learning Platforms">
-
-<meta name="subject" content="Web Design and Digital Marketing Agency">
-<meta name="topic" content="Digital Services, Web Development, SEO">
-<meta name="audience" content="Business, B2B, B2C">
-<meta name="target" content="all">
-<meta name="coverage" content="Italy, Worldwide">
-<meta name="distribution" content="Global">
-<meta name="rating" content="General">
+<meta name="category" content="UI Design, UX Design, Responsive Design, Mobile Web Design, Landing Page Design, E-commerce Design, Graphic Design, Web Interface, Visual Design, Website Redesign, Frontend Development, Backend Development, Full Stack Development, Custom Websites, Web Applications, CMS Development, WordPress Development, E-commerce Development, API Integration, HTML5 CSS3, Search Engine Optimization, Local SEO, Technical SEO, On-Page SEO, Off-Page SEO, Keyword Strategy, Link Building, SEO Audits, E-commerce SEO, International SEO, Inbound Marketing, Content Marketing, Email Marketing, Growth Hacking, Lead Generation, Marketing Automation, Performance Marketing, Social Media Marketing, Google Ads, Conversion Rate Optimization, A/B Testing, Web Analytics, Copywriting, SEO Copywriting, Brand Strategy, Brand Identity, Logo Design, Digital Strategy, Web Performance, Web Security, Website Maintenance, Cloud Hosting, SSL Setup, DevOps, Page Speed Optimization, Data Privacy, B2B Solutions, B2C Solutions, Digital Transformation">
+<meta name="subject"         content="Web Design and Digital Marketing Agency">
+<meta name="topic"           content="Digital Services, Web Development, SEO">
+<meta name="audience"        content="Business, B2B, B2C">
 <meta name="coverage"        content="Worldwide">
 <meta name="distribution"    content="Global">
 <meta name="target_country"  content="IT, US, GB, DE, FR, ES, CA, AU, NL, BE, CH, AT">
 
-<!-- ═══ PWA ═══ -->
-<link rel="manifest" href="manifest.json">
+<!-- ═══ GEO / LOCAL SEO ═══ -->
+<meta name="geo.region"    content="IT-LI">
+<meta name="geo.placename" content="Genova, Liguria">
+<meta name="geo.position"  content="44.4056;8.9463">
+<meta name="ICBM"          content="44.4056, 8.9463">
 
-<!-- ═══ TRUSTPILOT ═══ -->
+<!-- ═══ TRUSTPILOT (un solo tag) ═══ -->
 <meta name="trustpilot-one-time-domain-verification-id" content="475d2355-111b-4ed7-9a05-a60bd25e2cb3">
 
-<!-- Favicon per Google Search e browser -->
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<!-- ═══ FAVICON ═══ -->
+<link rel="icon" type="image/x-icon"  href="/favicon.ico">
+<link rel="shortcut icon"             href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Calipso">
+
+<!-- ═══ PWA (un solo manifest) ═══ -->
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#ffffff">
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="calipso" />
-<link rel="manifest" href="/site.webmanifest" />
-<!-- ═══ SCHEMA.ORG — GLOBAL ORGANIZATION ═══ -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@graph":[
-    {
-      "@type":"ProfessionalService",
-      "@id":"https://calipsowebagency.it/#organization",
-      "name":"Calipso Web Agency",
-      "description":"Global web agency based in Genova, Italy. We build fast, scalable, legally compliant websites for businesses worldwide — SEO, e-commerce, AI optimization.",
-      "url":"https://calipsowebagency.it/",
-      "email":"genovaagencydesign@gmail.com",
-      "address":{
-        "@type":"PostalAddress",
-        "addressLocality":"Genova",
-        "addressRegion":"Liguria",
-        "postalCode":"16100",
-        "addressCountry":"IT"
-      },
-      "areaServed":"Worldwide",
-      "availableLanguage":["Italian","English","Spanish","French","German"],
-      "serviceType":["Web Design","Web Development","SEO","International SEO","E-commerce","AI Optimization","GDPR Compliance","PWA Development"],
-      "sameAs":[
-        "https://github.com/lucaa06/calipso"
-      ],
-      "knowsAbout":["Web Design","Web Development","SEO","AI Search Optimization","GDPR","E-commerce","React","Next.js","Accessibility","Core Web Vitals"]
-    },
-    {
-      "@type":"WebSite",
-      "@id":"https://calipsowebagency.it/#website",
-      "url":"https://calipsowebagency.it/",
-      "name":"Calipso Web Agency",
-      "publisher":{"@id":"https://calipsowebagency.it/#organization"},
-      "inLanguage":["it","en","es","fr","de"],
-      "potentialAction":{
-        "@type":"SearchAction",
-        "target":"https://calipsowebagency.it/?s={search_term_string}",
-        "query-input":"required name=search_term_string"
-      }
-    },
-    {
-      "@type":"FAQPage",
-      "@id":"https://calipsowebagency.it/#faq",
-      "mainEntity":[
-        {"@type":"Question","name":"Do you work with clients outside Italy?","acceptedAnswer":{"@type":"Answer","text":"Absolutely — it is our primary model. We are based in Genova, Italy, but serve clients across Europe, North America, the Middle East and beyond. Our process is fully remote."}},
-        {"@type":"Question","name":"Will my website be GDPR compliant?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every site includes Privacy Policy, Cookie Policy, and a cookie banner compliant with European GDPR — recognized globally as the gold standard."}},
-        {"@type":"Question","name":"How much does a website cost?","acceptedAnswer":{"@type":"Answer","text":"The cost depends on project complexity. Contact us for a free, transparent quote based on your real needs."}},
-        {"@type":"Question","name":"How long does it take to build a website?","acceptedAnswer":{"@type":"Answer","text":"An institutional site takes 3–5 weeks. An e-commerce or complex project takes 6–10 weeks. We always provide a precise timeline before starting."}}
-      ]
-    },
-    {
-      "@type":"BreadcrumbList",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://calipsowebagency.it/"},
-        {"@type":"ListItem","position":2,"name":"Services","item":"https://calipsowebagency.it/#servizi"},
-        {"@type":"ListItem","position":3,"name":"Process","item":"https://calipsowebagency.it/#processo"},
-        {"@type":"ListItem","position":4,"name":"FAQ","item":"https://calipsowebagency.it/#faq"},
-        {"@type":"ListItem","position":5,"name":"Contact","item":"https://calipsowebagency.it/#contatti"}
-      ]
-    }
-  ]
-}
-</script>
-<!-- LOCAL SEO GENOVA BOOST -->
-<meta name="geo.region" content="IT-LI" />
-<meta name="geo.placename" content="Genova, Liguria" />
-<meta name="geo.position" content="44.4056; 8.9463" />
-<meta name="ICBM" content="44.4056, 8.9463">
-<link rel="alternate" hreflang="it-IT" href="https://lucaa06.github.io/calipso/?loc=genova" />
-<!-- FAQ Schema Genova -->
 
-<!-- ═══ TRUSTPILOT ═══ -->
-<meta name="trustpilot-one-time-domain-verification-id" content="475d2355-111b-4ed7-9a05-a60bd25e2cb3">
-
-<!-- PWA Genova-localizzato -->
-<link rel="manifest" href="data:application/manifest+json;base64,[usa tool per generare, o aggiungi file manifest.json]" />
 <!-- ═══ FONTS ═══ -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <!-- ═══ STYLES ═══ -->
 <style>
 /* ─── TOKENS ─── */
