@@ -227,18 +227,29 @@
     readFont: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 13L5.5 3.5L9 13M3.2 10.2h5.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="11.5" y1="6.5" x2="11.5" y2="13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M11.5 8.5c0-1 .8-2 2-2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="11.5" cy="11" r="1.8" stroke="currentColor" stroke-width="1.1"/></svg>`,
   };
 
+  /* ── I18N ── */
+  const A11Y_I18N = {
+    it: { title:'Accessibilità', bigText:'Testo più grande', contrast:'Alto contrasto', noMotion:'Riduci animazioni', underLinks:'Sottolinea link', readFont:'Font leggibile', reset:'Ripristina tutto', gdpr:'Preferenze salvate localmente nel browser. Nessun cookie, nessun dato trasmesso a terze parti.', ariaBtn:'Accessibilità — apri impostazioni', ariaPanel:'Impostazioni di accessibilità' },
+    en: { title:'Accessibility', bigText:'Larger text', contrast:'High contrast', noMotion:'Reduce motion', underLinks:'Underline links', readFont:'Readable font', reset:'Reset all', gdpr:'Preferences stored locally in browser. No cookies, no data sent to third parties.', ariaBtn:'Accessibility — open settings', ariaPanel:'Accessibility settings' },
+    fr: { title:'Accessibilité', bigText:'Texte plus grand', contrast:'Contraste élevé', noMotion:'Réduire les animations', underLinks:'Souligner les liens', readFont:'Police lisible', reset:'Tout réinitialiser', gdpr:'Préférences enregistrées localement. Aucun cookie, aucune donnée transmise.', ariaBtn:'Accessibilité — ouvrir les paramètres', ariaPanel:'Paramètres d\'accessibilité' },
+    de: { title:'Barrierefreiheit', bigText:'Größerer Text', contrast:'Hoher Kontrast', noMotion:'Animationen reduzieren', underLinks:'Links unterstreichen', readFont:'Lesbare Schrift', reset:'Alles zurücksetzen', gdpr:'Einstellungen lokal im Browser gespeichert. Keine Cookies, keine Daten an Dritte.', ariaBtn:'Barrierefreiheit — Einstellungen öffnen', ariaPanel:'Barrierefreiheit-Einstellungen' },
+    es: { title:'Accesibilidad', bigText:'Texto más grande', contrast:'Alto contraste', noMotion:'Reducir animaciones', underLinks:'Subrayar enlaces', readFont:'Fuente legible', reset:'Restablecer todo', gdpr:'Preferencias guardadas localmente. Sin cookies, sin datos enviados a terceros.', ariaBtn:'Accesibilidad — abrir ajustes', ariaPanel:'Ajustes de accesibilidad' }
+  };
+  const curLang = (document.documentElement.lang || 'it').slice(0,2).toLowerCase();
+  const t = A11Y_I18N[curLang] || A11Y_I18N.it;
+
   const FEATURES = [
-    { key:'bigText',    label:'Testo più grande'  },
-    { key:'contrast',   label:'Alto contrasto'    },
-    { key:'noMotion',   label:'Riduci animazioni' },
-    { key:'underLinks', label:'Sottolinea link'   },
-    { key:'readFont',   label:'Font leggibile'    },
+    { key:'bigText',    label: t.bigText  },
+    { key:'contrast',   label: t.contrast    },
+    { key:'noMotion',   label: t.noMotion },
+    { key:'underLinks', label: t.underLinks   },
+    { key:'readFont',   label: t.readFont    },
   ];
 
   /* ── DOM ── */
   const btn = document.createElement('button');
   btn.id = 'a11y-btn';
-  btn.setAttribute('aria-label', 'Accessibilità — apri impostazioni');
+  btn.setAttribute('aria-label', t.ariaBtn);
   btn.setAttribute('aria-expanded', 'false');
   btn.setAttribute('aria-controls', 'a11y-panel');
   btn.innerHTML = `<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="10" cy="4" r="2.2" fill="#fff"/><line x1="6.5" y1="8.5" x2="13.5" y2="8.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="10" y1="8.5" x2="10" y2="14.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><line x1="10" y1="12.5" x2="7.5" y2="16.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="12.5" x2="12.5" y2="16.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>`;
@@ -246,7 +257,7 @@
   const panel = document.createElement('div');
   panel.id = 'a11y-panel';
   panel.setAttribute('role', 'dialog');
-  panel.setAttribute('aria-label', 'Impostazioni di accessibilità');
+  panel.setAttribute('aria-label', t.ariaPanel);
 
   let rows = '';
   FEATURES.forEach(f => {
@@ -263,11 +274,11 @@
   });
 
   panel.innerHTML = `
-    <div class="a11y-head">${ICO.access}<span>Accessibilità</span></div>
+    <div class="a11y-head">${ICO.access}<span>${t.title}</span></div>
     <div class="a11y-rows">${rows}</div>
     <div class="a11y-foot">
-      <button id="a11y-reset">Ripristina tutto</button>
-      <p class="a11y-gdpr">Preferenze salvate localmente nel browser. Nessun cookie, nessun dato trasmesso a terze parti.</p>
+      <button id="a11y-reset">${t.reset}</button>
+      <p class="a11y-gdpr">${t.gdpr}</p>
     </div>`;
 
   document.body.appendChild(btn);

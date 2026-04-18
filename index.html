@@ -274,8 +274,8 @@
   --red-pale:#F2E2E4;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{font-size:20px;}
-body{background:var(--bg);color:var(--ink);font-family:'Cormorant Garamond',serif;overflow-x:hidden;cursor:none;}
+html{font-size:20px;overflow-x:hidden;}
+body{background:var(--bg);color:var(--ink);font-family:'Cormorant Garamond',serif;overflow-x:hidden;max-width:100vw;cursor:none;}
 
 /* ── CURSOR ── */
 .cur{position:fixed;pointer-events:none;z-index:9999;}
@@ -308,25 +308,33 @@ body{background:var(--bg);color:var(--ink);font-family:'Cormorant Garamond',seri
 .ld-name.in{opacity:1;}
 
 /* ── SCROLL OFFSET per navbar fixed ── */
-#servizi,#processo,#faq,#contatti{scroll-margin-top:90px;}
+#servizi,#processo,#prezzi,#faq,#contatti{scroll-margin-top:90px;}
 @media(max-width:768px){
-  #servizi,#processo,#faq,#contatti{scroll-margin-top:70px;}
+  #servizi,#processo,#prezzi,#faq,#contatti{scroll-margin-top:70px;}
 }
 
 /* ── SITE ── */
 #site{opacity:0;transition:opacity 1s ease;}
 #site.in{opacity:1;}
 
+/* ── TOPBAR ── */
+.topbar{position:fixed;top:0;left:0;right:0;height:35px;background:var(--ink);color:#fff;z-index:701;display:flex;align-items:center;justify-content:center;gap:2rem;font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;}
+.topbar a{color:#fff;text-decoration:none;display:flex;align-items:center;gap:.4rem;opacity:.9;transition:opacity .3s;white-space:nowrap;}
+.topbar a:hover{opacity:1;}
+.topbar svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:1.5;}
+@media(max-width:768px){ .topbar{gap:1.5rem;font-size:.5rem;} .topbar span.t-lbl{display:none;} }
+@media(max-width:380px){ .topbar{gap:1rem;} .topbar span.t-val{display:none;} } /* Hide long text on tiny screens, just icons and small text */
+
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:700;display:flex;align-items:center;justify-content:space-between;padding:1.8rem 4.5rem;transition:background .45s,box-shadow .45s;}
+nav{position:fixed;top:35px;left:0;right:0;z-index:700;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 4.5rem;transition:background .45s,box-shadow .45s;overflow:visible;}
 nav.sc{background:rgba(245,240,232,.96);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line);}
-.n-logo{display:flex;align-items:center;gap:.9rem;text-decoration:none;}
+.n-logo{display:flex;align-items:center;gap:.9rem;text-decoration:none;flex-shrink:0;}
 .n-logo img{width:28px;}
 .n-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.18em;color:var(--ink);}
-.n-links{display:flex;align-items:center;gap:2.8rem;}
+.n-links{display:flex;align-items:center;gap:2.8rem;flex-shrink:0;}
 .n-links a{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s;}
 .n-links a:hover{color:var(--ink);}
-.n-cta{color:#fff!important;background:var(--red);padding:.75rem 1.9rem;transition:background .3s,transform .3s!important;}
+.n-cta{color:#fff!important;background:var(--red);padding:.75rem 1.9rem;transition:background .3s,transform .3s!important;flex-shrink:0;white-space:nowrap;}
 .n-cta:hover{background:var(--red2)!important;transform:translateY(-2px)!important;}
 
 /* ── HERO ── */
@@ -546,9 +554,9 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
 .ck-no:hover{color:#fff;border-color:rgba(255,255,255,.3);}
 
 /* ── SCROLL REVEAL ── */
-.sr{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.23,1,.32,1);}
+.sr{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s cubic-bezier(.23,1,.32,1);}
 .sr.in{opacity:1;transform:none;}
-.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+.d1{transition-delay:.05s;}.d2{transition-delay:.1s;}.d3{transition-delay:.15s;}.d4{transition-delay:.2s;}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
@@ -584,22 +592,26 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
   .svc-row:hover .svc-desc,.svc-row:active .svc-desc{color:rgba(255,255,255,.78)!important;}
 
   /* Nav */
-  nav{padding-top:1.2rem;padding-bottom:1.2rem;}
+  nav{padding:1rem 1rem;}
+  .n-links{gap:1rem;}
   .n-links a:not(.n-cta){display:none;}
-  .n-cta{padding:.6rem 1.3rem;font-size:.52rem;}
+  .n-name{font-size:1.3rem;}
+  .n-logo img{width:22px;}
+  .n-cta{padding:.5rem 1rem;font-size:.48rem;}
 
   /* Hero */
-  .hero{min-height:auto;padding:0 1.4rem;justify-content:flex-start;}
-  .hero-body{padding-top:5.5rem;padding-bottom:2rem;}
+  .hero{min-height:auto;padding:0 1rem;justify-content:flex-start;}
+  .hero-body{padding-top:8rem;padding-bottom:4rem;}
   .hero-ring,.hero-glow{display:none;}
-  .hl1{font-size:clamp(3.2rem,20vw,8rem);}
-  .hl2{font-size:clamp(2.8rem,17vw,7rem);}
-  .hl3{font-size:clamp(2.2rem,14vw,5.5rem);}
-  .h-tag{font-size:.52rem;margin-bottom:1.6rem;}
-  .hero-foot{flex-direction:column;align-items:flex-start;gap:1.8rem;padding:1.8rem 0 3rem;border-top:1px solid var(--line);}
-  .h-sub{max-width:100%;font-size:1.25rem;}
-  .h-right{align-items:flex-start;gap:1rem;}
-  .h-btn{padding:1rem 2rem;font-size:.58rem;}
+  .hl1{font-size:clamp(2.6rem,18vw,8rem);}
+  .hl2{font-size:clamp(2.5rem,15vw,7rem);}
+  .hl3{font-size:clamp(2.1rem,13vw,5.5rem);margin-bottom:3rem;}
+  .h-tag{font-size:.50rem;margin-bottom:2.5rem;}
+  .pricing-hdr h2, .deliv h2 {font-size:clamp(2.2rem,8vw,7rem);}
+  .hero-foot{flex-direction:column;align-items:flex-start;gap:2.5rem;padding:3.5rem 0 4.5rem;border-top:1px solid var(--line);}
+  .h-sub{max-width:100%;font-size:1.35rem;line-height:1.5;}
+  .h-right{align-items:flex-start;gap:1.5rem;}
+  .h-btn{padding:1.1rem 2.2rem;font-size:.58rem;}
   .h-hint{font-size:.5rem;}
 
   /* Intro */
@@ -669,13 +681,275 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
   .ck-btns{width:100%;justify-content:flex-end;}
 }
 
-@media(max-width:480px){
-  .hl1{font-size:clamp(2.6rem,18vw,5rem);}
-  .hl2{font-size:clamp(2.2rem,15vw,4rem);}
-  .hl3{font-size:clamp(1.8rem,12vw,3.2rem);}
-  .ct-big{font-size:clamp(3.2rem,19vw,7rem);}
-  .svc-name{font-size:clamp(1.5rem,8vw,3.5rem);}
-  .n-name{font-size:1.1rem;}
+
+/* ══════════════════════════════════
+   NEURODESIGN ADDITIONS
+   ══════════════════════════════════ */
+:root{--trust:#1E5FA6;--action:#E8590C;--action-h:#D14B00;--ok:#2B8A3E;--fomo:#E03131;}
+
+/* ── SOCIAL PROOF ── */
+.proof{padding:5rem 4.5rem;border-bottom:1px solid var(--line);background:var(--bg2);}
+.proof-row{display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap;}
+.proof-stat{display:flex;flex-direction:column;align-items:center;gap:.4rem;min-width:120px;}
+.proof-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,5vw,5rem);color:var(--red);line-height:1;}
+.proof-lbl{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);text-align:center;}
+.proof-div{width:1px;height:56px;background:var(--line);}
+.proof-badges{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+.proof-badge{display:flex;align-items:center;gap:.55rem;padding:.65rem 1.3rem;border:1px solid var(--line);background:var(--bg);transition:border-color .3s;}
+.proof-badge:hover{border-color:rgba(162,26,45,.3);}
+.proof-badge svg{width:18px;height:18px;stroke:var(--red);fill:none;stroke-width:1.5;flex-shrink:0;}
+.proof-badge span{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;}
+.proof-reviews{display:flex;gap:1.5rem;margin-top:3rem;}
+.proof-rev{flex:1;padding:2rem 2rem;border:1px solid var(--line);background:var(--bg);position:relative;overflow:hidden;transition:transform .4s,box-shadow .4s;}
+.proof-rev:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(12,9,8,.08);}
+.proof-rev::before{content:'';position:absolute;top:0;left:0;width:2.5px;height:0;background:var(--red);transition:height .5s cubic-bezier(.23,1,.32,1);}
+.proof-rev:hover::before{height:100%;}
+.proof-stars{display:flex;gap:.15rem;margin-bottom:.7rem;}
+.proof-stars svg{width:13px;height:13px;fill:var(--action);stroke:none;}
+.proof-qt{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1.05rem;line-height:1.7;color:var(--ink);margin-bottom:.8rem;}
+.proof-who{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
+
+/* ── SERVICE GROUPS ── */
+.svc-group{border-bottom:1px solid var(--line);}
+.svc-grp-hdr{padding:2rem 4.5rem;display:flex;align-items:center;gap:1.5rem;cursor:pointer;transition:background .3s;}
+.svc-grp-hdr:hover{background:var(--bg2);}
+.svc-grp-hdr svg.svc-grp-ico{width:22px;height:22px;stroke:var(--red);fill:none;stroke-width:1.5;flex-shrink:0;}
+.svc-grp-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.08em;color:var(--ink);flex:1;}
+.svc-grp-sub{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);}
+.svc-grp-tog{width:28px;height:28px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .3s,border-color .3s,transform .5s cubic-bezier(.23,1,.32,1);}
+.svc-group.open .svc-grp-tog{background:var(--red);border-color:var(--red);transform:rotate(45deg);}
+.svc-grp-tog svg{width:10px;height:10px;stroke:var(--muted);fill:none;stroke-width:2;}
+.svc-group.open .svc-grp-tog svg{stroke:#fff;}
+.svc-grp-body{max-height:0;overflow:hidden;transition:max-height .6s cubic-bezier(.23,1,.32,1);}
+.svc-group.open .svc-grp-body{max-height:600px;}
+
+/* ── FOMO BAR ── */
+.fomo-bar{padding:1.1rem 4.5rem;background:var(--ink);display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap;}
+.fomo-item{display:flex;align-items:center;gap:.6rem;}
+.fomo-dot{width:7px;height:7px;border-radius:50%;background:var(--fomo);animation:pulse 2s ease-in-out infinite;flex-shrink:0;}
+.fomo-txt{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.fomo-txt strong{color:#fff;font-weight:500;}
+@media(max-width:768px){
+  .fomo-bar{flex-direction:column;align-items:flex-start;padding:.6rem 1rem;}
+  .fomo-txt{white-space:normal;}
+}
+
+/* ── PRICING TABS ── */
+.pricing{padding:6rem 4.5rem;border-bottom:1px solid var(--line);}
+.pricing-hdr{text-align:center;margin-bottom:3.5rem;}
+.pricing-hdr h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5.5vw,7rem);letter-spacing:.04em;line-height:.9;color:var(--ink);margin-bottom:1.5rem;}
+.pricing-hdr p{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:1.4rem;color:var(--muted);max-width:520px;margin:0 auto;}
+
+/* Category tabs */
+.ptabs{display:flex;gap:0;margin-bottom:3rem;border:1px solid var(--line);overflow:hidden;flex-wrap:wrap;}
+.ptab{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;padding:.85rem 1.6rem;border:none;border-right:1px solid var(--line);background:var(--bg);color:var(--muted);cursor:pointer;transition:background .3s,color .3s;flex:1;min-width:120px;}
+.ptab:last-child{border-right:none;}
+.ptab:hover{background:var(--bg2);color:var(--ink);}
+.ptab.on{background:var(--red);color:#fff;font-weight:500;}
+.ptab-lbl{display:block;font-size:.38rem;letter-spacing:.08em;margin-top:.1rem;opacity:.7;}
+.ptab.on .ptab-lbl{opacity:.8;}
+
+/* Panels */
+.ptab-panel{display:none;}
+.ptab-panel.on{display:block;animation:fadeUp .4s cubic-bezier(.23,1,.32,1);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+
+/* Layout */
+.conv-layout{display:grid;grid-template-columns:1fr 360px;gap:2.5rem;align-items:start;}
+.conv-bundles{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;align-items:start;}
+.conv-bundles.single{grid-template-columns:1fr;max-width:520px;}
+.conv-bundles.triple{grid-template-columns:repeat(3,1fr);}
+.conv-form{position:sticky;top:100px;}
+.conv-form-inner{border:1px solid var(--line);padding:2.5rem 2rem;background:var(--bg);box-shadow:0 20px 60px rgba(0,0,0,.06);}
+.conv-form-inner h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.02em;margin-bottom:.2rem;}
+.conv-direct{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line);}
+
+/* Cards */
+.price-card{border:1px solid var(--line);padding:3rem 2.5rem;background:var(--bg);position:relative;display:flex;flex-direction:column;transition:transform .42s cubic-bezier(.23,1,.32,1),box-shadow .42s,border-color .42s;}
+.price-card:hover{transform:translateY(-5px);box-shadow:0 20px 55px rgba(12,9,8,.09);}
+.price-card.feat{border-color:var(--red);transform:scale(1.04);box-shadow:0 20px 60px rgba(162,26,45,.12);z-index:2;}
+.price-card.feat:hover{transform:scale(1.04) translateY(-5px);box-shadow:0 28px 70px rgba(162,26,45,.18);}
+.price-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.22em;text-transform:uppercase;padding:.4rem 1.5rem;white-space:nowrap;}
+.price-badge.gold{background:linear-gradient(90deg,#b8860b,#d4a017);}
+.price-tier{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--red);margin-bottom:1.5rem;}
+.price-amt{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,4vw,4.2rem);letter-spacing:.02em;color:var(--ink);line-height:1;margin-bottom:.3rem;}
+.price-amt small{font-size:.38em;color:var(--muted);letter-spacing:.05em;}
+.price-note{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.06em;color:var(--muted2);margin-bottom:2rem;}
+.price-list{list-style:none;display:flex;flex-direction:column;gap:.65rem;margin-bottom:2.5rem;flex:1;}
+.price-list li{font-size:.92rem;font-weight:300;color:var(--muted);line-height:1.5;padding-left:1.7rem;position:relative;}
+.price-list li svg{position:absolute;left:0;top:.18rem;width:13px;height:13px;stroke-width:2;fill:none;}
+.price-list li .ck-i{stroke:var(--ok);}
+.price-list li .no-i{stroke:var(--muted2);opacity:.35;}
+.price-list li.off{color:var(--muted2);opacity:.45;}
+.price-cta{display:block;text-align:center;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;padding:1.05rem 2rem;text-decoration:none;transition:background .3s,transform .3s,color .3s;border:1.5px solid var(--line);color:var(--ink);background:transparent;}
+.price-cta:hover{background:var(--ink);color:#fff;transform:translateY(-2px);}
+.price-card.feat .price-cta{background:var(--red);color:#fff;border-color:var(--red);}
+.price-card.feat .price-cta:hover{background:var(--red2);border-color:var(--red2);transform:translateY(-2px);}
+.price-save{text-align:center;margin-top:.7rem;font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.1em;color:var(--ok);text-transform:uppercase;}
+
+/* Confronto aggiuntivo */
+.price-compare-note{margin-top:2.5rem;padding:1.5rem 2rem;border:1px solid var(--line);background:var(--bg2);display:flex;align-items:center;gap:1.2rem;}
+.price-compare-note svg{width:22px;height:22px;stroke:var(--red);fill:none;stroke-width:1.5;flex-shrink:0;}
+.price-compare-note p{font-size:.88rem;font-weight:300;color:var(--muted);line-height:1.65;}
+.price-compare-note strong{color:var(--ink);font-weight:500;}
+
+/* ── AUDIT BANNER (Reciprocity) ── */
+.audit{padding:4rem 4.5rem;background:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:3rem;border-bottom:1px solid rgba(255,255,255,.07);}
+.audit-l{display:flex;align-items:center;gap:1.6rem;}
+.audit-ico{width:46px;height:46px;border:1.5px solid var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.audit-ico svg{width:20px;height:20px;stroke:var(--red);fill:none;stroke-width:1.5;}
+.audit h3{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:.06em;color:#fff;margin-bottom:.25rem;}
+.audit p{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.05rem;color:rgba(255,255,255,.45);line-height:1.5;}
+.audit-cta{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:var(--action);padding:1rem 2.1rem;text-decoration:none;display:inline-block;transition:background .3s,transform .3s;white-space:nowrap;flex-shrink:0;}
+.audit-cta:hover{background:var(--action-h);transform:translateY(-2px);}
+
+/* ── MULTI-STEP FORM ── */
+.msf{width:100%;max-width:620px;margin:0 auto;position:relative;z-index:2;}
+.msf-bar{display:flex;align-items:center;justify-content:center;margin-bottom:3rem;}
+.msf-dot{width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.48rem;color:rgba(255,255,255,.25);transition:all .4s;position:relative;z-index:2;background:var(--ink);}
+.msf-dot.on{border-color:var(--red);color:#fff;background:var(--red);}
+.msf-dot.ok{border-color:var(--ok);color:#fff;background:var(--ok);}
+.msf-ln{width:55px;height:1.5px;background:rgba(255,255,255,.1);position:relative;z-index:1;}
+.msf-ln i{display:block;height:100%;width:0;background:var(--ok);transition:width .5s;}
+.msf-ln.ok i{width:100%;}
+.msf-step{display:none;}
+.msf-step.on{display:block;animation:msfIn .4s ease;}
+@keyframes msfIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+.msf-lbl{display:block;font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(12,9,8,.45);margin-bottom:1.6rem;text-align:center;}
+.msf-opts{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:1.5rem;}
+.msf-opt{padding:1.1rem 1.3rem;border:1.5px solid rgba(12,9,8,.1);background:transparent;color:rgba(12,9,8,.65);font-family:'Cormorant Garamond',serif;font-size:1rem;text-align:left;cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:.7rem;}
+.msf-opt:hover{border-color:rgba(12,9,8,.3);color:var(--ink);}
+.msf-opt.sel{border-color:var(--red);color:var(--red);background:rgba(162,26,45,.05);}
+.msf-opt svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.5;flex-shrink:0;}
+.msf-fld{margin-bottom:1rem;position:relative;}
+.msf-fld label{display:block;font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(12,9,8,.45);margin-bottom:.4rem;}
+.msf-fld input,.msf-fld select,.msf-fld textarea{width:100%;padding:.9rem 1.1rem;border:1.5px solid rgba(12,9,8,.1);background:rgba(255,255,255,.5);color:var(--ink);font-family:'Cormorant Garamond',serif;font-size:1.05rem;outline:none;transition:border-color .3s;appearance:none;-webkit-appearance:none;}
+.msf-fld input:focus,.msf-fld select:focus,.msf-fld textarea:focus{border-color:var(--red);background:#fff;}
+.msf-fld input.ok{border-color:var(--ok);}
+.msf-fld input.bad{border-color:var(--fomo);}
+.msf-fld textarea{min-height:80px;resize:vertical;}
+.msf-fld select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6' fill='none' stroke='%23333' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;color:var(--ink);}
+.msf-nav{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;}
+.msf-bk{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(12,9,8,.4);background:none;border:none;cursor:pointer;transition:color .3s;padding:.5rem 0;}
+.msf-bk:hover{color:var(--ink);}
+.msf-nx{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:var(--red);border:none;padding:1rem 2.2rem;cursor:pointer;transition:background .3s,transform .3s;}
+.msf-nx:hover{background:var(--red2);transform:translateY(-2px);}
+.msf-safe{text-align:center;margin-top:1.8rem;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;}
+.msf-safe span{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.08em;color:rgba(12,9,8,.35);display:flex;align-items:center;gap:.35rem;}
+.msf-safe svg{width:11px;height:11px;stroke:rgba(12,9,8,.35);fill:none;stroke-width:1.5;}
+.msf-ok{display:none;text-align:center;padding:3rem 0;}
+.msf-ok.show{display:block;animation:msfIn .5s ease;}
+.msf-ok-ico{width:52px;height:52px;border:2px solid var(--ok);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.3rem;}
+.msf-ok-ico svg{width:22px;height:22px;stroke:var(--ok);fill:none;stroke-width:2;}
+.msf-ok h3{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:.06em;color:var(--ink);margin-bottom:.5rem;}
+.msf-ok p{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.15rem;color:rgba(12,9,8,.6);}
+
+/* ── CONTACT METHODS ── */
+.ct-methods{display:flex;align-items:center;justify-content:center;gap:2rem;margin-top:2.2rem;position:relative;z-index:2;flex-wrap:wrap;}
+.ct-mtd{display:flex;align-items:center;gap:.5rem;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;color:rgba(255,255,255,.45);text-decoration:none;transition:color .3s;}
+.ct-mtd:hover{color:#fff;}
+.ct-mtd svg{width:17px;height:17px;stroke:var(--red);fill:none;stroke-width:1.5;}
+
+/* ── STICKY MOBILE CTA ── */
+.sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:600;background:var(--ink);border-top:1px solid rgba(162,26,45,.25);padding:.7rem 1rem;box-shadow:0 -4px 20px rgba(0,0,0,.22);}
+.sticky-inner{display:flex;gap:.5rem;}
+.sticky-cta a{flex:1;text-align:center;font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.12em;text-transform:uppercase;color:#fff;text-decoration:none;padding:.7rem .4rem;display:flex;align-items:center;justify-content:center;gap:.35rem;transition:background .3s;}
+.sticky-cta a svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.5;}
+.sc-ph{background:var(--trust);}
+.sc-ph:hover{background:#1a528f;}
+.sc-wa{background:var(--ok);}
+.sc-wa:hover{background:#237a36;}
+.sc-fm{background:var(--red);}
+.sc-fm:hover{background:var(--red2);}
+
+/* ── RESPONSIVE — NEURODESIGN ── */
+@media(max-width:1024px){
+  .conv-layout{grid-template-columns:1fr;max-width:100%;margin:0 auto;}
+  .conv-form{position:static;}
+  .price-card.feat{transform:none;}
+  .price-card.feat:hover{transform:translateY(-5px);}
+  .proof-reviews{flex-direction:column;}
+  .pricing{padding:4rem 1.5rem;}
+}
+@media(max-width:768px){
+  .conv-bundles{display:grid;grid-template-columns:1fr;gap:1.5rem;margin:0;padding:0;}
+  .conv-bundles .price-card{padding:2.5rem 1.8rem;}
+  .price-tier{font-size:.55rem;letter-spacing:.25em;margin-bottom:1.5rem;}
+  .price-amt{font-size:3.2rem;}
+  .price-list li{font-size:.95rem;padding-left:1.5rem;}
+  .price-cta{font-size:.6rem;padding:1.1rem 1.5rem;white-space:normal;}
+  .price-badge{font-size:.45rem;padding:.3rem .8rem;white-space:normal;}
+  .proof{padding:3.5rem 1.4rem;}
+  .proof-row{flex-direction:column;align-items:flex-start;gap:2rem;}
+  .proof-div{width:100%;height:1px;}
+  .proof-badges{gap:.8rem;}
+  .proof-reviews{gap:1rem;}
+  .svc-grp-hdr{padding:1.4rem 1.4rem;}
+  .pricing{padding:3rem 1.2rem;}
+  .pricing-hdr{margin-bottom:3rem;}
+  .fomo-bar{padding:.9rem 1.4rem;flex-direction:column;gap:.6rem;}
+  .audit{padding:2.5rem 1.4rem;flex-direction:column;align-items:flex-start;}
+  .msf-opts{grid-template-columns:1fr;}
+  .ct-methods{flex-direction:column;gap:1rem;}
+  .sticky-cta{display:block;}
+  #ck{bottom:52px;}
+  footer{padding-bottom:5rem;}
+  .hl1{font-size:clamp(2.6rem,18vw,8rem)!important;}
+  .hl2{font-size:clamp(2.5rem,15vw,7rem)!important;}
+  .hl3{font-size:clamp(2.1rem,13vw,5.5rem)!important;}
+  .pricing-hdr h2, .deliv h2 {font-size:clamp(2.2rem,8vw,7rem)!important;}
+  /* Pricing tabs */
+  .ptabs{flex-direction:column;border:none;gap:0;}
+  .ptab{border-right:none;border-bottom:1px solid var(--line);padding:.7rem 1.2rem;text-align:left;min-width:auto;}
+  .ptab:last-child{border-bottom:none;}
+  .ptab-lbl{display:inline;margin-left:.6rem;}
+  .conv-bundles.triple{grid-template-columns:1fr;}
+  .conv-bundles.single{max-width:100%;}
+  .price-compare-note{flex-direction:column;gap:.8rem;padding:1.2rem 1.4rem;}
+  .price-compare-note svg{width:18px;height:18px;}
+}
+/* ── FINAL UI FIXES (HIGH PRIORITY OVERRIDES) ── */
+@media(max-width:768px){
+  /* Fix Navbar — guarantee CTA fully visible */
+  .n-name{display:none!important;}
+  .n-logo{gap:0!important;flex-shrink:0!important;}
+  .n-links{gap:.4rem!important;flex-shrink:0!important;flex-wrap:nowrap!important;}
+  .n-cta{padding:.45rem .7rem!important;font-size:.44rem!important;letter-spacing:.08em!important;flex-shrink:0!important;white-space:nowrap!important;}
+  .n-lang-switcher{font-size:.5rem!important;flex-shrink:0!important;}
+  .n-lang-switcher .lang-btn{padding:.1rem .15rem!important;gap:.3rem!important;}
+  .n-lang-switcher .lang-code{font-size:.55rem!important;}
+  .n-lang-switcher .lang-globe{width:11px!important;height:11px!important;}
+  .n-lang-switcher .lang-chevron{width:6px!important;height:4px!important;}
+  nav{padding:.6rem .8rem!important;gap:.4rem!important;overflow:visible!important;}
+
+  /* Fix Intro Alignment */
+  .intro{
+    grid-template-columns:1fr!important;
+    gap:2rem!important;
+    padding:4rem 1.4rem!important;
+  }
+  .intro-lbl{
+    position:static!important;
+    padding-top:0!important;
+    margin-bottom:1rem!important;
+  }
+  .intro-signature{
+    margin-top:2.5rem!important;
+    align-items:flex-start!important;
+  }
+}
+
+/* ── ULTRA-SMALL SCREENS (< 380px) ── */
+@media(max-width:380px){
+  nav{padding:.5rem .6rem!important;}
+  .n-cta{padding:.4rem .5rem!important;font-size:.4rem!important;letter-spacing:.06em!important;}
+  .n-lang-switcher .lang-code{display:none!important;}
+  .n-lang-switcher .lang-btn{gap:.2rem!important;}
+  .topbar{font-size:.42rem!important;gap:.6rem!important;}
+  .h-tag{font-size:.42rem!important;}
+  .pricing-hdr h2{font-size:clamp(1.8rem,7vw,5rem)!important;}
+  .ptab{font-size:.42rem!important;padding:.6rem .8rem!important;}
+  .ptab-lbl{font-size:.32rem!important;}
 }
 </style>
 <link rel="stylesheet" href="i18n.css">
@@ -709,6 +983,12 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
 <!-- SITE -->
 <div id="site">
 
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="tel:+393518316068" data-cursor="Chiama" data-i18n-cursor="cursor.call"><svg viewBox="0 0 14 14"><path d="M5 5.5a6 6 0 002.5 2.5l.8-.8a.7.7 0 01.6-.1c.5.1 1 .2 1.5.2a.6.6 0 01.6.6v1.5a.6.6 0 01-.6.6A9.5 9.5 0 011 1.6a.6.6 0 01.6-.6h1.5a.6.6 0 01.6.6c0 .5.1 1 .2 1.5a.7.7 0 01-.1.6z"/></svg><span class="t-lbl">Chiama ora: </span><span class="t-val">+39 351 831 6068</span></a>
+  <a href="mailto:genovaagencydesign@gmail.com" data-cursor="Scrivi" data-i18n-cursor="cursor.write"><svg viewBox="0 0 14 14"><rect x="1" y="3" width="12" height="8" rx=".5"/><path d="M1 3l6 4 6-4"/></svg><span class="t-lbl">Email: </span><span class="t-val">genovaagencydesign@gmail.com</span></a>
+</div>
+
 <!-- NAV -->
 <nav id="nav">
   <a class="n-logo" href="#">
@@ -716,12 +996,13 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
     <span class="n-name">Calipso</span>
   </a>
   <div class="n-links">
-    <a href="#servizi"  data-i18n="nav.services">Servizi</a>
+    <a href="#servizi"  data-i18n="nav.services">Soluzioni</a>
+    <a href="#prezzi"   data-i18n="nav.pricing">Prezzi</a>
     <a href="#processo" data-i18n="nav.process">Processo</a>
     <a href="#faq"      data-i18n="nav.faq">FAQ</a>
     <!-- Language switcher injected here by i18n.js -->
     <div class="n-lang-switcher" data-i18n-switcher></div>
-    <a href="#contatti" class="n-cta" data-cursor="Scrivi" data-i18n="nav.contact">Contattaci</a>
+    <a href="#prezzi" class="n-cta" data-cursor="Scrivi" data-i18n-cursor="cursor.write" data-i18n="nav.contact">Contattaci</a>
   </div>
 </nav>
 
@@ -741,8 +1022,11 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
   <div class="hero-foot">
     <p class="h-sub" id="hsub" data-i18n="hero.sub">Costruiamo siti web che <strong>lavorano davvero</strong> — veloci, legali, bellissimi e pronti per attrarre clienti da tutto il mondo nel 2026.</p>
     <div class="h-right" id="hright">
-      <a href="mailto:genovaagencydesign@gmail.com" class="h-btn" data-cursor="Scrivi" data-i18n="hero.cta">Avvia il progetto</a>
-      <span class="h-hint"><div class="h-pulse"></div><span data-i18n="hero.scroll">Scorri per scoprire</span></span>
+      <a href="#prezzi" class="h-btn" data-cursor="Scrivi" data-i18n-cursor="cursor.write" data-i18n="hero.cta">Vedi i Prezzi</a>
+      <a href="tel:+393518316068" class="h-hint" style="text-decoration:none">
+        <div class="h-pulse"></div>
+        <span>+39 351 831 6068</span>
+      </a>
     </div>
   </div>
 </section>
@@ -755,26 +1039,474 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
   </div>
 </div>
 
-<!-- INTRO STATEMENT -->
-<section class="intro">
-  <p class="intro-lbl sr" data-i18n="intro.label">Chi siamo</p>
-  <div class="intro-txt" id="itxt" data-i18n="intro.text">
-    Siamo una web agency con sede a Genova, Italia. Costruiamo siti web per clienti in tutto il mondo — che non si limitano ad esistere: lavorano ogni giorno per far crescere il tuo business. <span class="r">Tutto il resto &egrave; rumore.</span>
+<!-- FOMO BAR -->
+<div class="fomo-bar">
+  <div class="fomo-item"><span class="fomo-dot"></span><span class="fomo-txt" data-i18n="fomo.item1">Accettiamo solo <strong>3 nuovi progetti</strong> per Maggio</span></div>
+  <div class="fomo-item"><span class="fomo-dot"></span><span class="fomo-txt" data-i18n="fomo.item2"><strong>2 aziende</strong> hanno richiesto un preventivo oggi</span></div>
+  <div class="fomo-item"><span class="fomo-dot"></span><span class="fomo-txt" data-i18n="fomo.item3">Solo <strong>1 slot</strong> disponibile questa settimana</span></div>
+</div>
+
+<!-- PRICING CONVERSION -->
+<section class="pricing" id="prezzi">
+  <div class="pricing-hdr sr">
+    <h2 data-i18n="pricing.h2">PREZZI CHIARI.<br>ZERO SORPRESE.</h2>
+    <p data-i18n="pricing.sub">Dal piccolo locale al grande e-commerce &mdash; prezzi fissi, nessuna sorpresa. Tutto incluso.</p>
+  </div>
+
+  <!-- TABS -->
+  <div class="ptabs sr" id="ptabs">
+    <button class="ptab on" data-tab="mini" data-i18n="ptab.mini">Mini Sito<span class="ptab-lbl" data-i18n="ptab.mini.price">da &euro;250</span></button>
+    <button class="ptab" data-tab="starter" data-i18n="ptab.starter">Starter<span class="ptab-lbl" data-i18n="ptab.starter.price">da &euro;599</span></button>
+    <button class="ptab" data-tab="pro" data-i18n="ptab.pro">Pro<span class="ptab-lbl" data-i18n="ptab.pro.price">da &euro;1.299</span></button>
+    <button class="ptab" data-tab="ecom" data-i18n="ptab.ecom">E-Commerce<span class="ptab-lbl" data-i18n="ptab.ecom.price">da &euro;2.499</span></button>
+    <button class="ptab" data-tab="enterprise" data-i18n="ptab.enterprise">Enterprise<span class="ptab-lbl" data-i18n="ptab.enterprise.price">da &euro;7.900</span></button>
+  </div>
+
+  <!-- PANEL: MINI -->
+  <div class="ptab-panel on" id="panel-mini">
+    <div class="conv-layout">
+      <div>
+        <div class="conv-bundles single">
+          <div class="price-card sr d1">
+            <span class="price-tier" data-i18n="mini.tier">Mini Sito / Landing Page</span>
+            <div class="price-amt">&euro;250 <small data-i18n="mini.vat">IVA escl.</small></div>
+            <p class="price-note" data-i18n="mini.note">Bar, parrucchieri, negozi di quartiere, artigiani</p>
+            <ul class="price-list">
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="mini.f1">1 pagina professionale (landing page)</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="mini.f2">Design responsive moderno</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="mini.f3">Google Maps &amp; contatti integrati</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="mini.f4">Pulsante WhatsApp diretto</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="mini.f5">SEO locale base (Google)</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="mini.f6">GDPR &amp; Cookie Policy inclusi</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="mini.f7">Consegna in <strong>5 giorni lavorativi</strong></span></li>
+              <li class="off"><svg viewBox="0 0 13 13"><line class="no-i" x1="2" y1="6.5" x2="11" y2="6.5"/></svg><span data-i18n="mini.f8">Blog o sezioni aggiuntive</span></li>
+              <li class="off"><svg viewBox="0 0 13 13"><line class="no-i" x1="2" y1="6.5" x2="11" y2="6.5"/></svg><span data-i18n="mini.f9">E-commerce</span></li>
+            </ul>
+            <a href="#conv-form-mini" class="price-cta" data-i18n="mini.cta">Avvia il progetto</a>
+            <p class="price-save" data-i18n="mini.save">&#10003; Perfetto per iniziare online senza spendere troppo</p>
+          </div>
+        </div>
+        <div class="price-compare-note">
+          <svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="9"/><line x1="11" y1="7" x2="11" y2="13"/><circle cx="11" cy="16" r="1" fill="var(--red)" stroke="none"/></svg>
+          <p data-i18n="mini.compare">Un sito professionale fatto bene fa la differenza rispetto a un profilo Instagram. <strong>&euro;250 una volta sola</strong>, nessun canone mensile obbligatorio.</p>
+        </div>
+      </div>
+      <div class="conv-form" id="conv-form-mini">
+        <div class="conv-form-inner">
+          <h3 data-i18n="form.title">Richiedi Preventivo</h3>
+          <p style="font-size:.9rem;color:var(--muted);margin-bottom:1.5rem;" data-i18n="form.sub">Ti rispondiamo entro 24h con un'analisi gratuita.</p>
+          <form id="cForm2">
+            <div class="msf-fld"><label data-i18n="form.lbl.pack">Pacchetto di interesse</label><select id="fPack2">
+              <option value="" data-i18n="form.select">Seleziona...</option>
+              <option data-i18n="opt.pack1">Mini Sito / Landing &mdash; &euro;250</option>
+              <option data-i18n="opt.pack2">Sito Vetrina &mdash; &euro;599</option>
+              <option data-i18n="opt.pack3">Sito Starter Plus &mdash; &euro;899</option>
+              <option data-i18n="opt.pack4">Sito Pro &mdash; &euro;1.299</option>
+              <option data-i18n="opt.pack5">Sito Pro Plus &mdash; &euro;2.100</option>
+              <option data-i18n="opt.pack6">E-Commerce Base &mdash; &euro;2.499</option>
+              <option data-i18n="opt.pack7">E-Commerce Avanzato &mdash; &euro;4.999</option>
+              <option data-i18n="opt.pack8">E-Com International &mdash; &euro;6.900</option>
+              <option data-i18n="opt.pack9">Enterprise Standard &mdash; &euro;7.900</option>
+              <option data-i18n="opt.pack10">Enterprise Full &mdash; su misura</option>
+              <option data-i18n="form.unsure">Non so ancora, ho una domanda</option>
+            </select></div>
+            <div class="msf-fld"><label data-i18n="form.lbl.name">Nome *</label><input type="text" id="fName2" required data-i18n-placeholder="form.ph.name" placeholder="Il tuo nome"></div>
+            <div class="msf-fld"><label data-i18n="form.lbl.email">Email *</label><input type="email" id="fEmail2" required data-i18n-placeholder="form.ph.email" placeholder="la@tua.email"></div>
+            <div class="msf-fld"><label data-i18n="form.lbl.phone">Telefono (opzionale)</label><input type="tel" id="fPhone2" placeholder="+39 ..."></div>
+            <div class="msf-fld"><label data-i18n="form.lbl.msg">Note progetto / Link sito attuale</label><textarea id="fMsg2" data-i18n-placeholder="form.ph.msg" placeholder="Raccontaci il tuo progetto..." rows="3"></textarea></div>
+            <button type="submit" class="msf-nx" style="width:100%;text-align:center;" data-i18n="form.submit">Invia Richiesta</button>
+          </form>
+          <div class="msf-ok" id="msfOk2"><div class="msf-ok-ico"><svg viewBox="0 0 22 22"><polyline points="4 11 9 16 18 6"/></svg></div><h3 data-i18n="form.sent.title">Richiesta inviata</h3><p data-i18n="form.sent.msg">Ti rispondiamo entro 24h.</p></div>
+          <div class="msf-safe"><span><svg viewBox="0 0 11 11"><rect x="3" y="5" width="5" height="4" rx=".5"/><path d="M4 5V3.5a2.5 2.5 0 015 0V5"/></svg>  <span data-i18n="form.safe">Dati al sicuro</span></span><span><svg viewBox="0 0 11 11"><circle cx="5.5" cy="5.5" r="4.5"/><polyline points="5.5 3 5.5 5.5 7.5 7"/></svg>  <span data-i18n="form.response">Risposta 24h</span></span><span><svg viewBox="0 0 11 11"><polyline points="2 5.5 4.5 8 9 3"/></svg>  <span data-i18n="form.nocommit">Zero impegno</span></span></div>
+          <div class="conv-direct"><p style="font-size:.7rem;color:var(--muted);margin-bottom:.5rem;">Preferisci parlare ora?</p><a href="tel:+393518316068" style="display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--red);text-decoration:none;margin-bottom:.3rem;"><svg viewBox="0 0 14 14" style="width:14px;height:14px;stroke:var(--red);fill:none;stroke-width:1.5;"><path d="M5 5.5a6 6 0 002.5 2.5l.8-.8a.7.7 0 01.6-.1c.5.1 1 .2 1.5.2a.6.6 0 01.6.6v1.5a.6.6 0 01-.6.6A9.5 9.5 0 011 1.6a.6.6 0 01.6-.6h1.5a.6.6 0 01.6.6c0 .5.1 1 .2 1.5a.7.7 0 01-.1.6z"/></svg>+39 351 831 6068</a><a href="https://wa.me/393518316068" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--ok);text-decoration:none;"><svg viewBox="0 0 14 14" style="width:14px;height:14px;stroke:var(--ok);fill:none;stroke-width:1.5;"><circle cx="7" cy="7" r="6"/></svg>WhatsApp</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL: STARTER -->
+  <div class="ptab-panel" id="panel-starter">
+    <div class="conv-layout">
+      <div>
+        <div class="conv-bundles">
+          <div class="price-card sr d1">
+            <span class="price-tier" data-i18n="starter1.tier">Sito Vetrina</span>
+            <div class="price-amt">&euro;599 <small data-i18n="mini.vat">IVA escl.</small></div>
+            <p class="price-note" data-i18n="starter1.note">Ristoranti, studi professionali, negozi</p>
+            <ul class="price-list">
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="starter1.f1">Fino a 4 pagine</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="starter1.f2">Design personalizzato</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="starter1.f3">SEO locale avanzato</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="starter1.f4">Modulo contatti professionale</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="starter1.f5">Google My Business setup</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="starter1.f6">GDPR completo</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="starter1.f7">Consegna in 10 giorni</span></li>
+            </ul>
+            <a href="#conv-form-mini" class="price-cta" data-i18n="starter1.cta">Inizia ora</a>
+          </div>
+          <div class="price-card feat sr d2">
+            <span class="price-badge" data-i18n="starter2.badge">Consigliato</span>
+            <span class="price-tier" data-i18n="starter2.tier">Sito Starter Plus</span>
+            <div class="price-amt">&euro;899 <small data-i18n="mini.vat">IVA escl.</small></div>
+            <p class="price-note" data-i18n="starter2.note">Per chi vuole qualcosa in pi&ugrave;</p>
+            <ul class="price-list">
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="starter2.f1">Fino a 7 pagine</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="starter2.f2">Design premium animato</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="starter2.f3">SEO on-page completo</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="starter2.f4">Blog / notizie integrato</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="starter2.f5">Analytics &amp; heatmap</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="starter2.f6">Core Web Vitals ottimizzato</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="starter2.f7">Consegna in 2 settimane</span></li>
+            </ul>
+            <a href="#conv-form-mini" class="price-cta" data-i18n="starter2.cta">Scegli Plus</a>
+            <p class="price-save" data-i18n="starter2.save">&#10003; Audit competitivo gratuito incluso</p>
+          </div>
+        </div>
+        <div class="price-compare-note">
+          <svg viewBox="0 0 22 22"><path d="M11 2l2.5 5 5.5.8-4 3.9 1 5.5L11 14.5 6 17.2l1-5.5-4-3.9 5.5-.8z"/></svg>
+          <p data-i18n="starter.compare">I pacchetti Starter sono <strong>perfetti per piccoli locali e professionisti</strong> che vogliono una presenza online completa, senza sovra-investire.</p>
+        </div>
+      </div>
+      <div class="conv-form">
+        <div class="conv-form-inner">
+          <h3 data-i18n="form.title">Richiedi Preventivo</h3>
+          <p style="font-size:.9rem;color:var(--muted);margin-bottom:1.5rem;">Ti rispondiamo entro 24h con analisi gratuita.</p>
+          <form id="cForm2b">
+            <div class="msf-fld"><label>Pacchetto</label><select>
+              <option data-i18n="opt.pack2">Sito Vetrina &mdash; &euro;599</option>
+              <option data-i18n="opt.pack3">Sito Starter Plus &mdash; &euro;899</option>
+            </select></div>
+            <div class="msf-fld"><label data-i18n="form.lbl.name">Nome *</label><input type="text" required data-i18n-placeholder="form.ph.name" placeholder="Il tuo nome"></div>
+            <div class="msf-fld"><label data-i18n="form.lbl.email">Email *</label><input type="email" required data-i18n-placeholder="form.ph.email" placeholder="la@tua.email"></div>
+            <div class="msf-fld"><label data-i18n="form.lbl.phone.req">Telefono</label><input type="tel" placeholder="+39 ..."></div>
+            <button type="submit" class="msf-nx" style="width:100%;">Invia Richiesta</button>
+          </form>
+          <div class="msf-safe"><span><svg viewBox="0 0 11 11"><rect x="3" y="5" width="5" height="4" rx=".5"/><path d="M4 5V3.5a2.5 2.5 0 015 0V5"/></svg>  <span data-i18n="form.safe">Dati al sicuro</span></span><span><svg viewBox="0 0 11 11"><polyline points="2 5.5 4.5 8 9 3"/></svg>  <span data-i18n="form.nocommit">Zero impegno</span></span></div>
+          <div class="conv-direct"><p style="font-size:.7rem;color:var(--muted);margin-bottom:.5rem;">Preferisci parlare?</p><a href="tel:+393518316068" style="display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--red);text-decoration:none;"><svg viewBox="0 0 14 14" style="width:14px;height:14px;stroke:var(--red);fill:none;stroke-width:1.5;"><path d="M5 5.5a6 6 0 002.5 2.5l.8-.8a.7.7 0 01.6-.1c.5.1 1 .2 1.5.2a.6.6 0 01.6.6v1.5a.6.6 0 01-.6.6A9.5 9.5 0 011 1.6a.6.6 0 01.6-.6h1.5a.6.6 0 01.6.6c0 .5.1 1 .2 1.5a.7.7 0 01-.1.6z"/></svg>+39 351 831 6068</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL: PRO -->
+  <div class="ptab-panel" id="panel-pro">
+    <div class="conv-layout">
+      <div>
+        <div class="conv-bundles">
+          <div class="price-card sr d1">
+            <span class="price-tier" data-i18n="pro1.tier">Sito Pro</span>
+            <div class="price-amt">&euro;1.299 <small data-i18n="mini.vat">IVA escl.</small></div>
+            <p class="price-note" data-i18n="pro1.note">Aziende strutturate, studi legali, agenzie</p>
+            <ul class="price-list">
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="pro1.f1">Fino a 12 pagine</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="pro1.f2">Design premium su misura</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="pro1.f3">SEO tecnico, schema markup, AI Search</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="pro1.f4">Blog avanzato</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="pro1.f5">Analytics privacy-first</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="pro1.f6">CMS per aggiornamenti autonomi</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="pro1.f7">Consegna 3&ndash;4 settimane</span></li>
+            </ul>
+            <a href="#conv-form-mini" class="price-cta" data-i18n="pro1.cta">Richiedi Preventivo</a>
+          </div>
+          <div class="price-card feat sr d2">
+            <span class="price-badge" data-i18n="pro2.badge">Pi&ugrave; scelto</span>
+            <span class="price-tier" data-i18n="pro2.tier">Sito Pro Plus</span>
+            <div class="price-amt">&euro;2.100 <small data-i18n="mini.vat">IVA escl.</small></div>
+            <p class="price-note" data-i18n="pro2.note">Per chi vuole dominare nella propria nicchia</p>
+            <ul class="price-list">
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="pro2.f1">Pagine illimitate</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="pro2.f2">Design &amp; brand identity completa</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="pro2.f3">Strategia SEO + contenuti ottimizzati</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="pro2.f4">Sezione portfolio / case study</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="pro2.f5">Form avanzati &amp; CRM integration</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="pro2.f6">3 mesi supporto tecnico incluso</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="pro2.f7">Audit competitivo approfondito</span></li>
+            </ul>
+            <a href="#conv-form-mini" class="price-cta" data-i18n="pro2.cta">Scegli Pro Plus</a>
+            <p class="price-save" data-i18n="pro2.save">&#10003; ROI misurabile dal primo mese</p>
+          </div>
+        </div>
+        <div class="price-compare-note">
+          <svg viewBox="0 0 22 22"><rect x="3" y="3" width="16" height="16" rx="2"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg>
+          <p data-i18n="pro.compare">Il pacchetto Pro &egrave; pensato per le <strong>aziende che vogliono crescere davvero</strong>: pi&ugrave; autorit&agrave;, pi&ugrave; contatti, pi&ugrave; fatturato.</p>
+        </div>
+      </div>
+      <div class="conv-form">
+        <div class="conv-form-inner">
+          <h3>Richiedi Preventivo Pro</h3>
+          <p style="font-size:.9rem;color:var(--muted);margin-bottom:1.5rem;">Audit competitivo gratuito incluso.</p>
+          <form id="cForm2c">
+            <div class="msf-fld"><label>Pacchetto</label><select>
+              <option data-i18n="opt.pack4">Sito Pro &mdash; &euro;1.299</option>
+              <option data-i18n="opt.pack5">Sito Pro Plus &mdash; &euro;2.100</option>
+            </select></div>
+            <div class="msf-fld"><label data-i18n="form.lbl.name">Nome *</label><input type="text" required data-i18n-placeholder="form.ph.name" placeholder="Il tuo nome"></div>
+            <div class="msf-fld"><label data-i18n="form.lbl.email">Email *</label><input type="email" required data-i18n-placeholder="form.ph.email" placeholder="la@tua.email"></div>
+            <div class="msf-fld"><label>Sito attuale (se hai)</label><input type="url" placeholder="https://..."></div>
+            <div class="msf-fld"><label>Obiettivo principale</label><textarea placeholder="Pi&ugrave; contatti? Pi&ugrave; vendite?" rows="2"></textarea></div>
+            <button type="submit" class="msf-nx" style="width:100%;">Richiedi Audit Gratuito</button>
+          </form>
+          <div class="msf-safe"><span><svg viewBox="0 0 11 11"><rect x="3" y="5" width="5" height="4" rx=".5"/><path d="M4 5V3.5a2.5 2.5 0 015 0V5"/></svg>  <span data-i18n="form.safe">Dati al sicuro</span></span><span><svg viewBox="0 0 11 11"><polyline points="2 5.5 4.5 8 9 3"/></svg>  <span data-i18n="form.nocommit">Zero impegno</span></span></div>
+          <div class="conv-direct"><p style="font-size:.7rem;color:var(--muted);margin-bottom:.5rem;">Preferisci parlare?</p><a href="tel:+393518316068" style="display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--red);text-decoration:none;"><svg viewBox="0 0 14 14" style="width:14px;height:14px;stroke:var(--red);fill:none;stroke-width:1.5;"><path d="M5 5.5a6 6 0 002.5 2.5l.8-.8a.7.7 0 01.6-.1c.5.1 1 .2 1.5.2a.6.6 0 01.6.6v1.5a.6.6 0 01-.6.6A9.5 9.5 0 011 1.6a.6.6 0 01.6-.6h1.5a.6.6 0 01.6.6c0 .5.1 1 .2 1.5a.7.7 0 01-.1.6z"/></svg>+39 351 831 6068</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL: E-COMMERCE -->
+  <div class="ptab-panel" id="panel-ecom">
+    <div class="conv-layout">
+      <div>
+        <div class="conv-bundles triple">
+          <div class="price-card sr d1">
+            <span class="price-tier" data-i18n="ecom1.tier">E-Com Base</span>
+            <div class="price-amt">&euro;2.499 <small data-i18n="mini.vat">IVA escl.</small></div>
+            <p class="price-note" data-i18n="ecom1.note">Per iniziare a vendere online</p>
+            <ul class="price-list">
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom1.f1">Fino a 100 prodotti</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom1.f2">Stripe / PayPal integrati</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom1.f3">Pannello ordini intuitivo</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom1.f4">SEO prodotti ottimizzato</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom1.f5">GDPR + fatturazione elettronica</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom1.f6">Consegna 4&ndash;5 settimane</span></li>
+            </ul>
+            <a href="#conv-form-mini" class="price-cta" data-i18n="ecom1.cta">Inizia a vendere</a>
+          </div>
+          <div class="price-card feat sr d2">
+            <span class="price-badge" data-i18n="ecom2.badge">Pi&ugrave; scelto</span>
+            <span class="price-tier" data-i18n="ecom2.tier">E-Com Avanzato</span>
+            <div class="price-amt">&euro;4.999 <small data-i18n="mini.vat">IVA escl.</small></div>
+            <p class="price-note" data-i18n="ecom2.note">Per shop con ambizioni di crescita</p>
+            <ul class="price-list">
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom2.f1">Prodotti illimitati</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom2.f2">Multi-valuta &amp; multi-lingua</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom2.f3">Varianti prodotto avanzate</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom2.f4">Email marketing integrato</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom2.f5">Google Shopping &amp; Meta Ads ready</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom2.f6">SEO e-commerce professionale</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom2.f7">3 mesi supporto incluso</span></li>
+            </ul>
+            <a href="#conv-form-mini" class="price-cta" data-i18n="ecom2.cta">Scegli Avanzato</a>
+            <p class="price-save" data-i18n="ecom2.save">&#10003; Strategia vendite internazionali inclusa</p>
+          </div>
+          <div class="price-card sr d3">
+            <span class="price-tier" data-i18n="ecom3.tier">E-Com International</span>
+            <div class="price-amt">&euro;6.900 <small data-i18n="mini.vat">IVA escl.</small></div>
+            <p class="price-note" data-i18n="ecom3.note">Vendite in tutta Europa e oltre</p>
+            <ul class="price-list">
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom3.f1">Tutto di Avanzato, pi&ugrave;&hellip;</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom3.f2">Fino a 5 lingue / mercati</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom3.f3">Marketplace integration (Amazon, Etsy)</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom3.f4">Gestione IVA internazionale OSS/MOSS</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom3.f5">Performance 95+ su PageSpeed</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom3.f6">6 mesi supporto dedicato</span></li>
+            </ul>
+            <a href="#conv-form-mini" class="price-cta" data-i18n="ecom3.cta">Discuti il Progetto</a>
+          </div>
+        </div>
+        <div class="price-compare-note">
+          <svg viewBox="0 0 22 22"><rect x="2" y="4" width="18" height="14" rx="2"/><path d="M7 20h8M11 18v2"/><path d="M6 8h10M6 11h6"/></svg>
+          <p data-i18n="ecom.compare">Tutti i pacchetti e-commerce includono <strong>GDPR, privacy policy e-commerce</strong> e gateway di pagamento. Nessuna sorpresa nascosta.</p>
+        </div>
+      </div>
+      <div class="conv-form">
+        <div class="conv-form-inner">
+          <h3>Preventivo E-Commerce</h3>
+          <p style="font-size:.9rem;color:var(--muted);margin-bottom:1.5rem;">Ti aiutiamo a scegliere il piano giusto.</p>
+          <form id="cForm2d">
+            <div class="msf-fld"><label>Pacchetto</label><select>
+              <option data-i18n="opt.pack6">E-Commerce Base &mdash; &euro;2.499</option>
+              <option data-i18n="opt.pack7">E-Commerce Avanzato &mdash; &euro;4.999</option>
+              <option data-i18n="opt.pack8">E-Com International &mdash; &euro;6.900</option>
+            </select></div>
+            <div class="msf-fld"><label data-i18n="form.lbl.name">Nome *</label><input type="text" required data-i18n-placeholder="form.ph.name" placeholder="Il tuo nome"></div>
+            <div class="msf-fld"><label data-i18n="form.lbl.email">Email *</label><input type="email" required data-i18n-placeholder="form.ph.email" placeholder="la@tua.email"></div>
+            <div class="msf-fld"><label data-i18n="form.lbl.products">Quanti prodotti hai?</label><select><option data-i18n="form.prod1">Meno di 50</option><option data-i18n="form.prod2">50&ndash;200</option><option data-i18n="form.prod3">200&ndash;1.000</option><option data-i18n="form.prod4">Oltre 1.000</option></select></div>
+            <div class="msf-fld"><label data-i18n="form.lbl.markets">Mercati target</label><input type="text" data-i18n-placeholder="form.ph.markets" placeholder="es. Italia, Germania, UK..."></div>
+            <button type="submit" class="msf-nx" style="width:100%;" data-i18n="form.submit.ecom">Richiedi Consulenza</button>
+          </form>
+          <div class="msf-safe"><span><svg viewBox="0 0 11 11"><rect x="3" y="5" width="5" height="4" rx=".5"/><path d="M4 5V3.5a2.5 2.5 0 015 0V5"/></svg>  <span data-i18n="form.safe">Dati al sicuro</span></span><span><svg viewBox="0 0 11 11"><polyline points="2 5.5 4.5 8 9 3"/></svg>  <span data-i18n="form.nocommit">Zero impegno</span></span></div>
+          <div class="conv-direct"><p style="font-size:.7rem;color:var(--muted);margin-bottom:.5rem;">Preferisci una call\?</p><a href="tel:+393518316068" style="display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--red);text-decoration:none;"><svg viewBox="0 0 14 14" style="width:14px;height:14px;stroke:var(--red);fill:none;stroke-width:1.5;"><path d="M5 5.5a6 6 0 002.5 2.5l.8-.8a.7.7 0 01.6-.1c.5.1 1 .2 1.5.2a.6.6 0 01.6.6v1.5a.6.6 0 01-.6.6A9.5 9.5 0 011 1.6a.6.6 0 01.6-.6h1.5a.6.6 0 01.6.6c0 .5.1 1 .2 1.5a.7.7 0 01-.1.6z"/></svg>+39 351 831 6068</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL: ENTERPRISE -->
+  <div class="ptab-panel" id="panel-enterprise">
+    <div class="conv-layout">
+      <div>
+        <div class="conv-bundles">
+          <div class="price-card sr d1">
+            <span class="price-tier" data-i18n="ent1.tier">Enterprise Standard</span>
+            <div class="price-amt">&euro;7.900 <small data-i18n="mini.vat">IVA escl.</small></div>
+            <p class="price-note" data-i18n="ent1.note">Grandi aziende, brand, marketplace</p>
+            <ul class="price-list">
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ent1.f1">Piattaforma custom su misura</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ent1.f2">Architettura scalabile</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ent1.f3">Integrazione ERP / CRM / Gestionale</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ent1.f4">SEO enterprise &amp; content strategy</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ent1.f5">Multi-sito &amp; multi-brand</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ent1.f6">SLA garantito 99.9% uptime</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ecom3.f6">6 mesi supporto dedicato</span></li>
+            </ul>
+            <a href="#conv-form-mini" class="price-cta" data-i18n="ent1.cta">Parliamo del Progetto</a>
+          </div>
+          <div class="price-card feat sr d2" style="border-color:var(--ink);">
+            <span class="price-badge gold" data-i18n="ent2.badge">Su misura</span>
+            <span class="price-tier" data-i18n="ent2.tier">Enterprise Full</span>
+            <div class="price-amt" style="font-size:2.2rem;" data-i18n="ent2.price">Su richiesta</div>
+            <p class="price-note" data-i18n="ent2.note">E-commerce grandi volumi, piattaforme complesse</p>
+            <ul class="price-list">
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ent2.f1">Tutto di Enterprise Standard</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ent2.f2">Team dedicato: dev + designer + SEO</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ent2.f3">AI per raccomandazioni prodotto</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ent2.f4">Dashboard analytics avanzata</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ent2.f5">Retargeting &amp; marketing automation</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ent2.f6">Supporto tecnico 12 mesi incluso</span></li>
+              <li><svg viewBox="0 0 13 13"><polyline class="ck-i" points="2 6.5 5 9.5 11 3.5"/></svg><span data-i18n="ent2.f7">Consulenza strategica mensile</span></li>
+            </ul>
+            <a href="#conv-form-mini" class="price-cta" style="background:var(--ink);color:#fff;border-color:var(--ink);" data-i18n="ent2.cta">Richiedi Proposta</a>
+            <p class="price-save" style="color:var(--muted);" data-i18n="ent2.save">Budget minimo: &euro;15.000</p>
+          </div>
+        </div>
+        <div class="price-compare-note">
+          <svg viewBox="0 0 22 22"><polygon points="11 2 14 8 20 9 15.5 13.5 16.5 20 11 17 5.5 20 6.5 13.5 2 9 8 8"/></svg>
+          <p data-i18n="ent.compare">I progetti Enterprise sono gestiti con un <strong>approccio su misura</strong>: dalla strategia alla delivery, con KPI definiti e risultati misurabili.</p>
+        </div>
+      </div>
+      <div class="conv-form">
+        <div class="conv-form-inner">
+          <h3 data-i18n="form.ent.title">Parliamo del tuo progetto</h3>
+          <p style="font-size:.9rem;color:var(--muted);margin-bottom:1.5rem;" data-i18n="form.ent.sub">Risposta garantita entro 24h con proposta dedicata.</p>
+          <form id="cForm2e">
+            <div class="msf-fld"><label data-i18n="form.lbl.company">Nome / Azienda *</label><input type="text" required data-i18n-placeholder="form.ph.company" placeholder="Azienda Srl"></div>
+            <div class="msf-fld"><label data-i18n="form.lbl.email">Email *</label><input type="email" required data-i18n-placeholder="form.ph.email.ent" placeholder="la@azienda.it"></div>
+            <div class="msf-fld"><label data-i18n="form.lbl.phone.req">Telefono</label><input type="tel" placeholder="+39 ..."></div>
+            <div class="msf-fld"><label data-i18n="form.lbl.budget">Budget indicativo</label><select>
+              <option data-i18n="opt.budget1">&euro;7.900 &ndash; &euro;15.000</option>
+              <option data-i18n="opt.budget2">&euro;15.000 &ndash; &euro;30.000</option>
+              <option data-i18n="opt.budget3">&euro;30.000+</option>
+              <option data-i18n="form.budget1">Da definire</option>
+            </select></div>
+            <div class="msf-fld"><label data-i18n="form.lbl.desc">Descrivi il progetto</label><textarea data-i18n-placeholder="form.ph.desc" placeholder="Di che piattaforma hai bisogno? Obiettivi principali?" rows="3"></textarea></div>
+            <button type="submit" class="msf-nx" style="width:100%;" data-i18n="form.submit.ent">Richiedi Proposta Enterprise</button>
+          </form>
+          <div class="msf-safe"><span><svg viewBox="0 0 11 11"><rect x="3" y="5" width="5" height="4" rx=".5"/><path d="M4 5V3.5a2.5 2.5 0 015 0V5"/></svg>  <span data-i18n="form.nda">NDA disponibile</span></span><span><svg viewBox="0 0 11 11"><polyline points="2 5.5 4.5 8 9 3"/></svg>  <span data-i18n="form.response">Risposta 24h</span></span></div>
+          <div class="conv-direct"><p style="font-size:.7rem;color:var(--muted);margin-bottom:.5rem;">Vuoi parlare subito\?</p><a href="tel:+393518316068" style="display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--red);text-decoration:none;margin-bottom:.3rem;"><svg viewBox="0 0 14 14" style="width:14px;height:14px;stroke:var(--red);fill:none;stroke-width:1.5;"><path d="M5 5.5a6 6 0 002.5 2.5l.8-.8a.7.7 0 01.6-.1c.5.1 1 .2 1.5.2a.6.6 0 01.6.6v1.5a.6.6 0 01-.6.6A9.5 9.5 0 011 1.6a.6.6 0 01.6-.6h1.5a.6.6 0 01.6.6c0 .5.1 1 .2 1.5a.7.7 0 01-.1.6z"/></svg>+39 351 831 6068</a><a href="https://wa.me/393518316068" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--ok);text-decoration:none;"><svg viewBox="0 0 14 14" style="width:14px;height:14px;stroke:var(--ok);fill:none;stroke-width:1.5;"><circle cx="7" cy="7" r="6"/></svg>WhatsApp</a></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- SERVICES -->
+<!-- INTRO STATEMENT -->
+<section class="intro">
+  <p class="intro-lbl sr" data-i18n="intro.label">Chi siamo</p>
+  <div class="intro-main">
+    <div class="intro-txt" id="itxt" data-i18n="intro.text">
+      Siamo una web agency con sede a Genova, Italia. Costruiamo siti web per clienti in tutto il mondo — che non si limitano ad esistere: lavorano ogni giorno per far crescere il tuo business. <span class="r">Tutto il resto &egrave; rumore.</span>
+    </div>
+    <div class="intro-signature sr" style="margin-top:4.5rem;display:flex;flex-direction:column;align-items:flex-start;gap:0.8rem;opacity:0.8;">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.5rem, 3vw, 2rem);max-width:600px;text-align:left;color:var(--ink);margin:0;"><span data-i18n="intro.quote">"Non creiamo semplici vetrine online.<br>Costruiamo macchine da conversione e autorevolezza.<span data-i18n="intro.quote">"</span></p>
+      <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-top:0.5rem;display:flex;align-items:center;gap:10px;">
+        <span style="width:20px;height:1px;background:var(--red);"></span> <span data-i18n="intro.team">Il Team di Direzione</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="proof">
+  <div class="proof-row sr">
+    <div class="proof-stat">
+      <span class="proof-num" data-count="50">0</span>
+      <span class="proof-lbl" data-i18n="proof.stat1">Aziende servite</span>
+    </div>
+    <div class="proof-div"></div>
+    <div class="proof-stat">
+      <span class="proof-num" data-count="120">0</span>
+      <span class="proof-lbl" data-i18n="proof.stat2">Progetti completati</span>
+    </div>
+    <div class="proof-div"></div>
+    <div class="proof-stat">
+      <span class="proof-num" data-count="98">0</span>
+      <span class="proof-lbl" data-i18n="proof.stat3">% Clienti soddisfatti</span>
+    </div>
+    <div class="proof-div"></div>
+    <div class="proof-badges">
+      <div class="proof-badge"><svg viewBox="0 0 18 18"><path d="M9 1l2 4h4.5l-3.5 3 1.5 4.5L9 10l-4.5 2.5L6 8 2.5 5H7z"/></svg><span>Google Partner</span></div>
+      <div class="proof-badge"><svg viewBox="0 0 18 18"><circle cx="9" cy="9" r="7"/><path d="M5 9h8M9 5v8"/></svg><span>Meta Partner</span></div>
+      <div class="proof-badge"><svg viewBox="0 0 18 18"><path d="M9 2l1.5 3 3.5.5-2.5 2.5.5 3.5L9 10l-3 1.5.5-3.5L4 5.5l3.5-.5z"/></svg><span>Trustpilot 4.9</span></div>
+    </div>
+  </div>
+  <div class="proof-reviews sr d2">
+    <div class="proof-rev">
+      <div class="proof-stars"><svg viewBox="0 0 13 13"><path d="M6.5 0l2 4 4.5.5-3.2 3 .8 4.5-4-2.2-4 2.2.8-4.5L.2 4.5 4.5 4z"/></svg><svg viewBox="0 0 13 13"><path d="M6.5 0l2 4 4.5.5-3.2 3 .8 4.5-4-2.2-4 2.2.8-4.5L.2 4.5 4.5 4z"/></svg><svg viewBox="0 0 13 13"><path d="M6.5 0l2 4 4.5.5-3.2 3 .8 4.5-4-2.2-4 2.2.8-4.5L.2 4.5 4.5 4z"/></svg><svg viewBox="0 0 13 13"><path d="M6.5 0l2 4 4.5.5-3.2 3 .8 4.5-4-2.2-4 2.2.8-4.5L.2 4.5 4.5 4z"/></svg><svg viewBox="0 0 13 13"><path d="M6.5 0l2 4 4.5.5-3.2 3 .8 4.5-4-2.2-4 2.2.8-4.5L.2 4.5 4.5 4z"/></svg></div>
+      <p class="proof-qt" data-i18n="proof.rev1.qt">"Calipso ha trasformato la nostra presenza online. In 3 mesi il traffico organico &egrave; triplicato e le richieste di preventivo raddoppiate."</p>
+      <span class="proof-who" data-i18n="proof.rev1.who">Marco R. &mdash; CEO, Fashion E-commerce</span>
+    </div>
+    <div class="proof-rev">
+      <div class="proof-stars"><svg viewBox="0 0 13 13"><path d="M6.5 0l2 4 4.5.5-3.2 3 .8 4.5-4-2.2-4 2.2.8-4.5L.2 4.5 4.5 4z"/></svg><svg viewBox="0 0 13 13"><path d="M6.5 0l2 4 4.5.5-3.2 3 .8 4.5-4-2.2-4 2.2.8-4.5L.2 4.5 4.5 4z"/></svg><svg viewBox="0 0 13 13"><path d="M6.5 0l2 4 4.5.5-3.2 3 .8 4.5-4-2.2-4 2.2.8-4.5L.2 4.5 4.5 4z"/></svg><svg viewBox="0 0 13 13"><path d="M6.5 0l2 4 4.5.5-3.2 3 .8 4.5-4-2.2-4 2.2.8-4.5L.2 4.5 4.5 4z"/></svg><svg viewBox="0 0 13 13"><path d="M6.5 0l2 4 4.5.5-3.2 3 .8 4.5-4-2.2-4 2.2.8-4.5L.2 4.5 4.5 4z"/></svg></div>
+      <p class="proof-qt" data-i18n="proof.rev2.qt">"Professionali, veloci e con un'attenzione maniacale ai dettagli. Il sito &egrave; un capolavoro sia esteticamente che tecnicamente."</p>
+      <span class="proof-who" data-i18n="proof.rev2.who">Laura S. &mdash; Fondatrice, Studio Architettura</span>
+    </div>
+    <div class="proof-rev">
+      <div class="proof-stars"><svg viewBox="0 0 13 13"><path d="M6.5 0l2 4 4.5.5-3.2 3 .8 4.5-4-2.2-4 2.2.8-4.5L.2 4.5 4.5 4z"/></svg><svg viewBox="0 0 13 13"><path d="M6.5 0l2 4 4.5.5-3.2 3 .8 4.5-4-2.2-4 2.2.8-4.5L.2 4.5 4.5 4z"/></svg><svg viewBox="0 0 13 13"><path d="M6.5 0l2 4 4.5.5-3.2 3 .8 4.5-4-2.2-4 2.2.8-4.5L.2 4.5 4.5 4z"/></svg><svg viewBox="0 0 13 13"><path d="M6.5 0l2 4 4.5.5-3.2 3 .8 4.5-4-2.2-4 2.2.8-4.5L.2 4.5 4.5 4z"/></svg><svg viewBox="0 0 13 13"><path d="M6.5 0l2 4 4.5.5-3.2 3 .8 4.5-4-2.2-4 2.2.8-4.5L.2 4.5 4.5 4z"/></svg></div>
+      <p class="proof-qt" data-i18n="proof.rev3.qt">"Finalmente un'agenzia che capisce il business, non solo il codice. ROI chiaro fin dal primo mese dopo il lancio."</p>
+      <span class="proof-who" data-i18n="proof.rev3.who">Andrea B. &mdash; Direttore Marketing, B2B SaaS</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES (Chunked by category &mdash; Hick's Law) -->
 <section class="svc" id="servizi">
   <div class="svc-h sr">
-    <h2 data-i18n="services.title">Cosa facciamo</h2>
-    <span data-i18n="services.count">06 specializzazioni</span>
+    <h2 data-i18n="services.title">Le nostre soluzioni</h2>
+    <span data-i18n="services.count">3 aree — 6 specializzazioni</span>
   </div>
-  <div class="svc-row" data-cursor="Esplora"><div class="svc-fill"></div><div class="svc-in"><span class="svc-n">01</span><span class="svc-name" data-i18n="svc1.name">SEO &amp; AI SEARCH</span><span class="svc-desc" data-i18n="svc1.desc">Visibili su Google in ogni mercato. Citati da ChatGPT, Gemini e Perplexity. Topical authority internazionale, Schema.org e GEO.</span><span class="svc-arr">&rarr;</span></div></div>
-  <div class="svc-row" data-cursor="Esplora"><div class="svc-fill"></div><div class="svc-in"><span class="svc-n">02</span><span class="svc-name" data-i18n="svc2.name">DESIGN &amp; SVILUPPO</span><span class="svc-desc" data-i18n="svc2.desc">Interfacce memorabili, codice pulito, animazioni fluide. Accessibile, veloce, senza frizione — per utenti di qualsiasi paese.</span><span class="svc-arr">&rarr;</span></div></div>
-  <div class="svc-row" data-cursor="Esplora"><div class="svc-fill"></div><div class="svc-in"><span class="svc-n">03</span><span class="svc-name" data-i18n="svc3.name">E-COMMERCE</span><span class="svc-desc" data-i18n="svc3.desc">Catalogo, checkout multi-valuta, pagamenti internazionali, IVA globale OSS/IOSS, shipping worldwide.</span><span class="svc-arr">&rarr;</span></div></div>
-  <div class="svc-row" data-cursor="Esplora"><div class="svc-fill"></div><div class="svc-in"><span class="svc-n">04</span><span class="svc-name" data-i18n="svc4.name">SICUREZZA &amp; INFRASTRUTTURA</span><span class="svc-desc" data-i18n="svc4.desc">WAF, 2FA, backup distribuiti, CDN globale, uptime monitorato 24/7 su ogni continente.</span><span class="svc-arr">&rarr;</span></div></div>
-  <div class="svc-row" data-cursor="Esplora"><div class="svc-fill"></div><div class="svc-in"><span class="svc-n">05</span><span class="svc-name" data-i18n="svc5.name">PRIVACY &amp; LEGALE</span><span class="svc-desc" data-i18n="svc5.desc">GDPR, cookie banner, conformit&agrave; alle normative europee e internazionali. Operativo per clienti di qualsiasi giurisdizione.</span><span class="svc-arr">&rarr;</span></div></div>
-  <div class="svc-row" data-cursor="Esplora"><div class="svc-fill"></div><div class="svc-in"><span class="svc-n">06</span><span class="svc-name" data-i18n="svc6.name">AI &amp; INNOVAZIONE</span><span class="svc-desc" data-i18n="svc6.desc">Chatbot LLM addestrato sui tuoi dati, RAG proprietario, ottimizzazione per motori AI in ogni lingua.</span><span class="svc-arr">&rarr;</span></div></div>
+
+  <!-- GROUP 1: Sviluppo Web -->
+  <div class="svc-group open" data-cursor="Esplora" data-i18n-cursor="cursor.explore">
+    <div class="svc-grp-hdr">
+      <svg class="svc-grp-ico" viewBox="0 0 22 22"><rect x="3" y="4" width="16" height="13" rx="1.5"/><line x1="3" y1="8" x2="19" y2="8"/><line x1="8" y1="17" x2="14" y2="20"/></svg>
+      <span class="svc-grp-name" data-i18n="svc.grp1.title">Sviluppo Web</span>
+      <span class="svc-grp-sub" data-i18n="svc.grp1.sub">Design, siti, e-commerce</span>
+      <span class="svc-grp-tog"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>
+    </div>
+    <div class="svc-grp-body">
+      <div class="svc-row" data-cursor="Esplora" data-i18n-cursor="cursor.explore"><div class="svc-fill"></div><div class="svc-in"><span class="svc-n">01</span><span class="svc-name" data-i18n="svc2.name">DESIGN &amp; SVILUPPO</span><span class="svc-desc" data-i18n="svc2.desc">Interfacce memorabili, codice pulito, animazioni fluide. Il tuo sito sar&agrave; veloce cos&igrave; da non farti perdere nemmeno un cliente.</span><span class="svc-arr">&rarr;</span></div></div>
+      <div class="svc-row" data-cursor="Esplora" data-i18n-cursor="cursor.explore"><div class="svc-fill"></div><div class="svc-in"><span class="svc-n">02</span><span class="svc-name" data-i18n="svc3.name">E-COMMERCE</span><span class="svc-desc" data-i18n="svc3.desc">Catalogo, checkout multi-valuta, pagamenti internazionali, IVA globale OSS/IOSS, shipping worldwide.</span><span class="svc-arr">&rarr;</span></div></div>
+    </div>
+  </div>
+
+  <!-- GROUP 2: Marketing Digitale -->
+  <div class="svc-group" data-cursor="Esplora" data-i18n-cursor="cursor.explore">
+    <div class="svc-grp-hdr">
+      <svg class="svc-grp-ico" viewBox="0 0 22 22"><path d="M3 18V8l4-4h8l4 4v10"/><polyline points="7 14 11 10 15 14"/><line x1="11" y1="10" x2="11" y2="18"/></svg>
+      <span class="svc-grp-name" data-i18n="svc.grp2.title">Marketing Digitale</span>
+      <span class="svc-grp-sub" data-i18n="svc.grp2.sub">SEO, AI Search, innovazione</span>
+      <span class="svc-grp-tog"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>
+    </div>
+    <div class="svc-grp-body">
+      <div class="svc-row" data-cursor="Esplora" data-i18n-cursor="cursor.explore"><div class="svc-fill"></div><div class="svc-in"><span class="svc-n">03</span><span class="svc-name" data-i18n="svc1.name">SEO &amp; AI SEARCH</span><span class="svc-desc" data-i18n="svc1.desc">Visibili su Google in ogni mercato. Citati da ChatGPT, Gemini e Perplexity. Il tuo brand nel futuro della ricerca globale.</span><span class="svc-arr">&rarr;</span></div></div>
+      <div class="svc-row" data-cursor="Esplora" data-i18n-cursor="cursor.explore"><div class="svc-fill"></div><div class="svc-in"><span class="svc-n">04</span><span class="svc-name" data-i18n="svc6.name">AI &amp; INNOVAZIONE</span><span class="svc-desc" data-i18n="svc6.desc">Chatbot LLM addestrato sui tuoi dati, RAG proprietario, ottimizzazione per motori AI in ogni lingua.</span><span class="svc-arr">&rarr;</span></div></div>
+    </div>
+  </div>
+
+  <!-- GROUP 3: Sicurezza & Compliance -->
+  <div class="svc-group" data-cursor="Esplora" data-i18n-cursor="cursor.explore">
+    <div class="svc-grp-hdr">
+      <svg class="svc-grp-ico" viewBox="0 0 22 22"><path d="M11 2L4 6v5c0 5.5 3 8.5 7 10 4-1.5 7-4.5 7-10V6z"/></svg>
+      <span class="svc-grp-name" data-i18n="svc.grp3.title">Sicurezza &amp; Compliance</span>
+      <span class="svc-grp-sub" data-i18n="svc.grp3.sub">Privacy, GDPR, infrastruttura</span>
+      <span class="svc-grp-tog"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span>
+    </div>
+    <div class="svc-grp-body">
+      <div class="svc-row" data-cursor="Esplora" data-i18n-cursor="cursor.explore"><div class="svc-fill"></div><div class="svc-in"><span class="svc-n">05</span><span class="svc-name" data-i18n="svc4.name">SICUREZZA &amp; INFRASTRUTTURA</span><span class="svc-desc" data-i18n="svc4.desc">WAF, 2FA, backup distribuiti, CDN globale, uptime monitorato 24/7 su ogni continente.</span><span class="svc-arr">&rarr;</span></div></div>
+      <div class="svc-row" data-cursor="Esplora" data-i18n-cursor="cursor.explore"><div class="svc-fill"></div><div class="svc-in"><span class="svc-n">06</span><span class="svc-name" data-i18n="svc5.name">PRIVACY &amp; LEGALE</span><span class="svc-desc" data-i18n="svc5.desc">GDPR, cookie banner, conformit&agrave; alle normative europee e internazionali. I tuoi dati e quelli dei tuoi clienti sono al sicuro.</span><span class="svc-arr">&rarr;</span></div></div>
+    </div>
+  </div>
 </section>
 
 <!-- MARQUEE 2 -->
@@ -790,7 +1522,7 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
   <div class="proc-l sr">
     <h2 data-i18n="process.h2">Come<br>lavoriamo<br><em>con te</em></h2>
     <p data-i18n="process.p">Niente template, niente soluzioni copia-incolla. Ogni progetto nasce da un'analisi reale del tuo mercato — ovunque tu sia nel mondo.</p>
-    <a href="mailto:genovaagencydesign@gmail.com" class="proc-btn" data-cursor="Scrivi" data-i18n="process.cta">Parlaci del progetto</a>
+    <a href="#prezzi" class="proc-btn" data-cursor="Scrivi" data-i18n-cursor="cursor.write" data-i18n="process.cta">Scopri i pacchetti</a>
   </div>
   <div class="proc-steps sr d2">
     <div class="step"><span class="step-n">01</span><div><div class="step-t" data-i18n="step1.title">ASCOLTO</div><p class="step-b" data-i18n="step1.body">Capiamo chi sei, cosa vendi e a chi — in qualsiasi mercato tu operi. Analizziamo competitor locali e internazionali prima di aprire qualsiasi editor.</p></div></div>
@@ -826,10 +1558,10 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
     <p data-i18n="tech.sub">Stack moderno, scelto per ogni progetto</p>
   </div>
   <div class="tech-grid">
-    <div class="tech-cell sr"><p class="tc-cat">Frontend</p><ul class="tc-list"><li>HTML5 semantico</li><li>CSS moderno (custom properties, container queries)</li><li>JavaScript ES2024+</li><li>React / Next.js</li><li>Tipografia variabile</li></ul></div>
-    <div class="tech-cell sr d1"><p class="tc-cat">CMS &amp; Backend</p><ul class="tc-list"><li>WordPress headless</li><li>Sanity / Contentful</li><li>Webflow (per clienti autonomi)</li><li>Node.js / PHP</li><li>REST &amp; GraphQL API</li></ul></div>
-    <div class="tech-cell sr d2"><p class="tc-cat">Infrastruttura</p><ul class="tc-list"><li>Cloudflare CDN &amp; WAF</li><li>Vercel / Netlify</li><li>GitHub Actions CI/CD</li><li>Green hosting EU</li><li>Uptime monitoring 24/7</li></ul></div>
-    <div class="tech-cell sr d3"><p class="tc-cat">Analytics &amp; AI</p><ul class="tc-list"><li>Matomo (privacy-first)</li><li>Server-Side Tracking</li><li>Google Consent Mode v2</li><li>OpenAI API / RAG</li><li>Schema.org JSON-LD</li></ul></div>
+    <div class="tech-cell sr"><p class="tc-cat" data-i18n="tech.cat1">Frontend</p><ul class="tc-list"><li data-i18n="tech.item1.1">HTML5 semantico</li><li>CSS moderno (custom properties, container queries)</li><li>JavaScript ES2024+</li><li>React / Next.js</li><li data-i18n="tech.item1.5">Tipografia variabile</li></ul></div>
+    <div class="tech-cell sr d1"><p class="tc-cat" data-i18n="tech.cat2">CMS &amp; Backend</p><ul class="tc-list"><li>WordPress headless</li><li>Sanity / Contentful</li><li data-i18n="tech.item2.3">Webflow (per clienti autonomi)</li><li>Node.js / PHP</li><li>REST &amp; GraphQL API</li></ul></div>
+    <div class="tech-cell sr d2"><p class="tc-cat" data-i18n="tech.cat3">Infrastruttura</p><ul class="tc-list"><li>Cloudflare CDN &amp; WAF</li><li>Vercel / Netlify</li><li>GitHub Actions CI/CD</li><li>Green hosting EU</li><li>Uptime monitoring 24/7</li></ul></div>
+    <div class="tech-cell sr d3"><p class="tc-cat" data-i18n="tech.cat4">Analytics &amp; AI</p><ul class="tc-list"><li>Matomo (privacy-first)</li><li>Server-Side Tracking</li><li>Google Consent Mode v2</li><li>OpenAI API / RAG</li><li>Schema.org JSON-LD</li></ul></div>
   </div>
 </section>
 
@@ -853,26 +1585,25 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
     <p class="sr d1" data-i18n="faq.p">Tutto quello che vuoi sapere prima di iniziare. Se non trovi la risposta, scrivici — rispondiamo entro 24 ore.</p>
   </div>
   <div class="faq-list">
-    <div class="faq-item sr" data-cursor="Leggi"><div class="faq-q"><span class="faq-q-txt" data-i18n="faq1.q">Quanto costa realizzare un sito web?</span><span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span></div><div class="faq-a"><div class="faq-a-in" data-i18n="faq1.a">Il costo dipende dalla complessit&agrave; del progetto. Un sito istituzionale di qualit&agrave; parte da una base che copre design, sviluppo, SEO e conformit&agrave; legale. Contattateci per un preventivo gratuito e trasparente.</div></div></div>
-    <div class="faq-item sr" data-cursor="Leggi"><div class="faq-q"><span class="faq-q-txt" data-i18n="faq2.q">Quanto tempo ci vuole per realizzare un sito?</span><span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span></div><div class="faq-a"><div class="faq-a-in" data-i18n="faq2.a">Un sito istituzionale richiede in media 3&ndash;5 settimane. Un e-commerce o un progetto complesso 6&ndash;10 settimane.</div></div></div>
-    <div class="faq-item sr" data-cursor="Leggi"><div class="faq-q"><span class="faq-q-txt" data-i18n="faq3.q">Posso gestire il sito da solo dopo la consegna?</span><span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span></div><div class="faq-a"><div class="faq-a-in" data-i18n="faq3.a">S&igrave;, assolutamente. Ogni sito viene consegnato con una guida personalizzata per aggiornare testi, immagini e contenuti in autonomia.</div></div></div>
-    <div class="faq-item sr" data-cursor="Leggi"><div class="faq-q"><span class="faq-q-txt" data-i18n="faq4.q">Il sito sar&agrave; ottimizzato per Google a livello internazionale?</span><span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span></div><div class="faq-a"><div class="faq-a-in" data-i18n="faq4.a">S&igrave;. Ogni sito include SEO tecnico internazionale: meta tag multilingua, hreflang, dati strutturati Schema.org, sitemap XML, robots.txt, velocit&agrave; di caricamento e Core Web Vitals.</div></div></div>
-    <div class="faq-item sr" data-cursor="Leggi"><div class="faq-q"><span class="faq-q-txt" data-i18n="faq5.q">Il mio sito sar&agrave; conforme al GDPR?</span><span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span></div><div class="faq-a"><div class="faq-a-in" data-i18n="faq5.a">S&igrave;. Ogni sito include Privacy Policy, Cookie Policy e banner cookie conformi al GDPR europeo — riconosciuto come standard di eccellenza a livello globale.</div></div></div>
-    <div class="faq-item sr" data-cursor="Leggi"><div class="faq-q"><span class="faq-q-txt" data-i18n="faq6.q">Cosa succede dopo il lancio? Offrite manutenzione?</span><span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span></div><div class="faq-a"><div class="faq-a-in" data-i18n="faq6.a">S&igrave;. Offriamo piani di manutenzione mensile che includono aggiornamenti tecnici, backup, monitoraggio uptime e ottimizzazioni SEO continue.</div></div></div>
-    <div class="faq-item sr" data-cursor="Leggi"><div class="faq-q"><span class="faq-q-txt" data-i18n="faq7.q">Lavorate con clienti fuori dall'Italia?</span><span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span></div><div class="faq-a"><div class="faq-a-in" data-i18n="faq7.a">Assolutamente s&igrave; — &egrave; il nostro modello principale. Siamo basati a Genova, Italia, ma serviamo clienti in Europa, Nord America, Medio Oriente e oltre. Il nostro processo &egrave; completamente remoto. La distanza non &egrave; mai un problema.</div></div></div>
-    <div class="faq-item sr" data-cursor="Leggi"><div class="faq-q"><span class="faq-q-txt" data-i18n="faq8.q">Posso portare un sito esistente e farvelo migliorare?</span><span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span></div><div class="faq-a"><div class="faq-a-in" data-i18n="faq8.a">S&igrave;. Facciamo audit completi: velocit&agrave;, SEO, accessibilit&agrave;, sicurezza, conformit&agrave; legale e posizionamento internazionale.</div></div></div>
+    <div class="faq-item sr" data-cursor="Leggi" data-i18n-cursor="cursor.read"><div class="faq-q"><span class="faq-q-txt" data-i18n="faq1.q">Quanto costa realizzare un sito web?</span><span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span></div><div class="faq-a"><div class="faq-a-in" data-i18n="faq1.a">Il costo dipende dalla complessit&agrave; del progetto. Un sito istituzionale di qualit&agrave; parte da una base che copre design, sviluppo, SEO e conformit&agrave; legale. Contattateci per un preventivo gratuito e trasparente.</div></div></div>
+    <div class="faq-item sr" data-cursor="Leggi" data-i18n-cursor="cursor.read"><div class="faq-q"><span class="faq-q-txt" data-i18n="faq2.q">Quanto tempo ci vuole per realizzare un sito?</span><span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span></div><div class="faq-a"><div class="faq-a-in" data-i18n="faq2.a">Un sito istituzionale richiede in media 3&ndash;5 settimane. Un e-commerce o un progetto complesso 6&ndash;10 settimane.</div></div></div>
+    <div class="faq-item sr" data-cursor="Leggi" data-i18n-cursor="cursor.read"><div class="faq-q"><span class="faq-q-txt" data-i18n="faq3.q">Posso gestire il sito da solo dopo la consegna?</span><span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span></div><div class="faq-a"><div class="faq-a-in" data-i18n="faq3.a">S&igrave;, assolutamente. Ogni sito viene consegnato con una guida personalizzata per aggiornare testi, immagini e contenuti in autonomia.</div></div></div>
+    <div class="faq-item sr" data-cursor="Leggi" data-i18n-cursor="cursor.read"><div class="faq-q"><span class="faq-q-txt" data-i18n="faq4.q">Il sito sar&agrave; ottimizzato per Google a livello internazionale?</span><span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span></div><div class="faq-a"><div class="faq-a-in" data-i18n="faq4.a">S&igrave;. Ogni sito include SEO tecnico internazionale: meta tag multilingua, hreflang, dati strutturati Schema.org, sitemap XML, robots.txt, velocit&agrave; di caricamento e Core Web Vitals.</div></div></div>
+    <div class="faq-item sr" data-cursor="Leggi" data-i18n-cursor="cursor.read"><div class="faq-q"><span class="faq-q-txt" data-i18n="faq5.q">Il mio sito sar&agrave; conforme al GDPR?</span><span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span></div><div class="faq-a"><div class="faq-a-in" data-i18n="faq5.a">S&igrave;. Ogni sito include Privacy Policy, Cookie Policy e banner cookie conformi al GDPR europeo — riconosciuto come standard di eccellenza a livello globale.</div></div></div>
+    <div class="faq-item sr" data-cursor="Leggi" data-i18n-cursor="cursor.read"><div class="faq-q"><span class="faq-q-txt" data-i18n="faq6.q">Cosa succede dopo il lancio? Offrite manutenzione?</span><span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span></div><div class="faq-a"><div class="faq-a-in" data-i18n="faq6.a">S&igrave;. Offriamo piani di manutenzione mensile che includono aggiornamenti tecnici, backup, monitoraggio uptime e ottimizzazioni SEO continue.</div></div></div>
+    <div class="faq-item sr" data-cursor="Leggi" data-i18n-cursor="cursor.read"><div class="faq-q"><span class="faq-q-txt" data-i18n="faq7.q">Lavorate con clienti fuori dall'Italia?</span><span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span></div><div class="faq-a"><div class="faq-a-in" data-i18n="faq7.a">Assolutamente s&igrave; — &egrave; il nostro modello principale. Siamo basati a Genova, Italia, ma serviamo clienti in Europa, Nord America, Medio Oriente e oltre. Il nostro processo &egrave; completamente remoto. La distanza non &egrave; mai un problema.</div></div></div>
+    <div class="faq-item sr" data-cursor="Leggi" data-i18n-cursor="cursor.read"><div class="faq-q"><span class="faq-q-txt" data-i18n="faq8.q">Posso portare un sito esistente e farvelo migliorare?</span><span class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></span></div><div class="faq-a"><div class="faq-a-in" data-i18n="faq8.a">S&igrave;. Facciamo audit completi: velocit&agrave;, SEO, accessibilit&agrave;, sicurezza, conformit&agrave; legale e posizionamento internazionale.</div></div></div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contatti">
-  <div class="ct-glow" aria-hidden="true"></div>
-  <p class="ct-tag sr" data-i18n="contact.tag">Iniziamo</p>
-  <h2 class="ct-big sr" data-i18n="contact.big">PARLIAMO.</h2>
-  <p class="ct-sub sr" data-i18n="contact.sub">Raccontaci il tuo progetto. Ovunque tu sia.</p>
-  <a class="ct-mail sr" href="mailto:genovaagencydesign@gmail.com" data-cursor="Scrivi">genovaagencydesign@gmail.com</a>
-  <p class="ct-note sr" data-i18n="contact.note">Genova, Italia &mdash; Clienti in tutto il mondo &mdash; risposta entro 24 ore</p>
-</section>
+<!-- AUDIT BANNER -->
+<div class="audit">
+  <div class="audit-l">
+    <div class="audit-ico"><svg viewBox="0 0 20 20"><path d="M3 17V7l3-3h8l3 3v10"/><polyline points="7 12 10 9 13 12"/><line x1="10" y1="9" x2="10" y2="16"/></svg></div>
+    <div><h3 data-i18n="audit.title">Audit SEO Gratuito</h3><p data-i18n="audit.sub">Scopri il punteggio del tuo sito. Gratis, senza impegno.</p></div>
+  </div>
+  <a href="#prezzi" class="audit-cta" data-cursor="Scrivi" data-i18n-cursor="cursor.write" data-i18n="audit.cta">Richiedi Audit Gratis</a>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -898,10 +1629,19 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
     </div>
     <div class="ft-copy" data-i18n="footer.copy">
       &copy; 2026 Calipso Web Agency<br>
-      <a href="mailto:genovaagencydesign@gmail.com">genovaagencydesign@gmail.com</a>
+      <a href="tel:+393518316068">+39 351 831 6068</a> &middot; <a href="mailto:genovaagencydesign@gmail.com">genovaagencydesign@gmail.com</a>
     </div>
   </div>
 </footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-inner">
+    <a href="tel:+393518316068" class="sc-ph"><svg viewBox="0 0 13 13"><path d="M5 6a6 6 0 002.6 2.6l.8-.8a.7.7 0 01.7-.2 5 5 0 001.5.2.7.7 0 01.7.7v1.6a.7.7 0 01-.7.7A10 10 0 011.2 1.7a.7.7 0 01.7-.7h1.6a.7.7 0 01.7.7 5 5 0 00.2 1.5.7.7 0 01-.2.7z"/></svg>Chiama</a>
+    <a href="https://wa.me/393518316068" target="_blank" rel="noopener" class="sc-wa"><svg viewBox="0 0 13 13"><path d="M6.5.5A6 6 0 00.5 6.5a6 6 0 00.8 3L.5 12.5l3.1-.8A6 6 0 006.5 12.5a6 6 0 000-12z"/></svg>WhatsApp</a>
+    <a href="#prezzi" class="sc-fm"><svg viewBox="0 0 13 13"><rect x="1.5" y="3" width="10" height="7" rx="1"/><path d="M1.5 3l5 3.8L11.5 3"/></svg>Preventivo</a>
+  </div>
+</div>
 
 </div><!-- /site -->
 
@@ -947,7 +1687,7 @@ if(!isTouch){
   let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
   (function tick(){if(touchDisabled)return;rx+=(mx-rx)*.13;ry+=(my-ry)*.13;cd.style.left=mx+'px';cd.style.top=my+'px';cr.style.left=rx+'px';cr.style.top=ry+'px';cl.style.left=mx+'px';cl.style.top=my+'px';requestAnimationFrame(tick);})();
-  document.querySelectorAll('a,button,.svc-row,.gc,.step,.dl-item,.faq-item,.tech-cell').forEach(el=>{
+  document.querySelectorAll('a,button,.svc-row,.gc,.step,.dl-item,.faq-item,.tech-cell,.price-card,.proof-rev,.proof-badge,.svc-grp-hdr').forEach(el=>{
     const t=el.getAttribute('data-cursor');
     el.addEventListener('mouseenter',()=>{cd.classList.add('big');cr.classList.add('big');if(t){cl.textContent=t;cl.classList.add('on');}});
     el.addEventListener('mouseleave',()=>{cd.classList.remove('big');cr.classList.remove('big');cl.classList.remove('on');});
@@ -1005,7 +1745,7 @@ document.querySelectorAll('.faq-item').forEach(item=>{
 
 /* ── MAGNETIC BUTTONS ── */
 if(!isTouch){
-  document.querySelectorAll('.n-cta,.h-btn,.proc-btn').forEach(btn=>{
+  document.querySelectorAll('.n-cta,.h-btn,.proc-btn,.price-cta,.audit-cta,.msf-nx').forEach(btn=>{
     btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.22}px,${(e.clientY-r.top-r.height/2)*.22}px)`;});
     btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
   });
@@ -1024,6 +1764,150 @@ if(!isTouch){
   const params=new URLSearchParams(window.location.search);
   const lang=params.get('lang');
   if(lang){localStorage.setItem('calipso_lang',lang);}
+})();
+
+/* ── SERVICE GROUP ACCORDION ── */
+document.querySelectorAll('.svc-grp-hdr').forEach(hdr=>{
+  hdr.addEventListener('click',()=>{
+    const grp=hdr.parentElement;
+    const isOpen=grp.classList.contains('open');
+    grp.classList.toggle('open');
+  });
+});
+
+/* ── ANIMATED COUNTERS ── */
+(function(){
+  let counted=false;
+  const nums=document.querySelectorAll('.proof-num[data-count]');
+  if(!nums.length)return;
+  const cio=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting&&!counted){
+        counted=true;
+        nums.forEach(n=>{
+          const target=parseInt(n.dataset.count);
+          let current=0;
+          const step=Math.ceil(target/40);
+          const timer=setInterval(()=>{
+            current+=step;
+            if(current>=target){current=target;clearInterval(timer);}
+            n.textContent=current+"+";
+          },35);
+        });
+        cio.disconnect();
+      }
+    });
+  },{threshold:.3});
+  nums.forEach(n=>cio.observe(n));
+})();
+
+/* ── MULTI-STEP FORM (lower section) ── */
+(function(){
+  const form=document.getElementById('cForm');
+  const msf=document.getElementById('msf');
+  if(!form||!msf)return;
+  let cur=1, formData={service:''};
+  form.querySelectorAll('.msf-opt').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      form.querySelectorAll('.msf-opt').forEach(b=>b.classList.remove('sel'));
+      btn.classList.add('sel');
+      formData.service=btn.dataset.val;
+    });
+  });
+  function goTo(step){
+    cur=step;
+    form.querySelectorAll('.msf-step').forEach(s=>s.classList.remove('on'));
+    const target=form.querySelector('.msf-step[data-step="'+step+'"]');
+    if(target)target.classList.add('on');
+    msf.querySelectorAll('.msf-dot').forEach(d=>{
+      const s=parseInt(d.dataset.s);
+      d.classList.remove('on','ok');
+      if(s<step)d.classList.add('ok');
+      else if(s===step)d.classList.add('on');
+    });
+    msf.querySelectorAll('.msf-ln').forEach(l=>{
+      const ln=parseInt(l.dataset.l);
+      l.classList.toggle('ok',ln<step);
+    });
+  }
+  form.querySelectorAll('.msf-nx[data-go],.msf-bk[data-go]').forEach(btn=>{
+    btn.addEventListener('click',()=>goTo(parseInt(btn.dataset.go)));
+  });
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const name=(document.getElementById('fName')||{}).value||'';
+    const email=(document.getElementById('fEmail')||{}).value||'';
+    const phone=(document.getElementById('fPhone')||{}).value||'';
+    const budget=(document.getElementById('fBudget')||{}).value||'';
+    const time=(document.getElementById('fTime')||{}).value||'';
+    const msg=(document.getElementById('fMsg')||{}).value||'';
+    if(!name.trim()||!email.trim())return;
+    const subject=encodeURIComponent('Richiesta preventivo - '+formData.service);
+    const body=encodeURIComponent('Nome: '+name+'\nEmail: '+email+'\n'+(phone?'Tel: '+phone+'\n':'')+'Servizio: '+formData.service+'\nBudget: '+budget+'\nTempistiche: '+time+'\n'+(msg?'Messaggio: '+msg+'\n':''));
+    window.location.href='mailto:genovaagencydesign@gmail.com?subject='+subject+'&body='+body;
+    form.style.display='none';
+    document.getElementById('msfOk').classList.add('show');
+  });
+})();
+
+/* ── PRICING TABS ── */
+(function(){
+  const tabs=document.querySelectorAll('.ptab');
+  if(!tabs.length)return;
+  tabs.forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      tabs.forEach(t=>t.classList.remove('on'));
+      tab.classList.add('on');
+      document.querySelectorAll('.ptab-panel').forEach(p=>p.classList.remove('on'));
+      const panel=document.getElementById('panel-'+tab.dataset.tab);
+      if(panel)panel.classList.add('on');
+    });
+  });
+  /* All forms in pricing panels — mailto submit */
+  document.querySelectorAll('.ptab-panel form').forEach(form=>{
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      const fd=new FormData(form);
+      let parts=[];
+      for(let[k,v]of fd.entries()){if(v)parts.push(k+': '+v);}
+      const subject=encodeURIComponent('Richiesta preventivo Calipso');
+      const body=encodeURIComponent(parts.join('\n'));
+      window.location.href='mailto:genovaagencydesign@gmail.com?subject='+subject+'&body='+body;
+      const ok=form.parentElement.querySelector('.msf-ok');
+      if(ok){form.style.display='none';ok.classList.add('show');}
+    });
+  });
+})();
+
+/* ── INLINE PRICING FORM (sidebar) ── */
+(function(){
+  const form=document.getElementById('cForm2');
+  if(!form)return;
+  document.querySelectorAll('.price-card .price-cta').forEach(cta=>{
+    cta.addEventListener('click',e=>{
+      const card=cta.closest('.price-card');
+      const tier=card?.querySelector('.price-tier')?.textContent||'';
+      const sel=document.getElementById('fPack2');
+      if(sel){
+        for(let o of sel.options){if(o.text.includes(tier)){sel.value=o.value;o.selected=true;break;}}
+      }
+    });
+  });
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const pack=(document.getElementById('fPack2')||{}).value||'';
+    const name=(document.getElementById('fName2')||{}).value||'';
+    const email=(document.getElementById('fEmail2')||{}).value||'';
+    const phone=(document.getElementById('fPhone2')||{}).value||'';
+    const msg=(document.getElementById('fMsg2')||{}).value||'';
+    if(!name.trim()||!email.trim())return;
+    const subject=encodeURIComponent('Richiesta - '+pack);
+    const body=encodeURIComponent('Pacchetto: '+pack+'\nNome: '+name+'\nEmail: '+email+'\n'+(phone?'Tel: '+phone+'\n':'')+(msg?'Messaggio: '+msg+'\n':''));
+    window.location.href='mailto:genovaagencydesign@gmail.com?subject='+subject+'&body='+body;
+    form.style.display='none';
+    const ok=document.getElementById('msfOk2');
+    if(ok)ok.classList.add('show');
+  });
 })();
 </script>
 
