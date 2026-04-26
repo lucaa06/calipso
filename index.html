@@ -903,11 +903,6 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
   .n-logo{gap:0!important;flex-shrink:0!important;}
   .n-links{gap:.4rem!important;flex-shrink:0!important;flex-wrap:nowrap!important;}
   .n-cta{padding:.45rem .7rem!important;font-size:.44rem!important;letter-spacing:.08em!important;flex-shrink:0!important;white-space:nowrap!important;}
-  .n-lang-switcher{font-size:.5rem!important;flex-shrink:0!important;}
-  .n-lang-switcher .lang-btn{padding:.1rem .15rem!important;gap:.3rem!important;}
-  .n-lang-switcher .lang-code{font-size:.55rem!important;}
-  .n-lang-switcher .lang-globe{width:11px!important;height:11px!important;}
-  .n-lang-switcher .lang-chevron{width:6px!important;height:4px!important;}
   nav{padding:.6rem .8rem!important;gap:.4rem!important;overflow:visible!important;}
 
   /* Fix Intro Alignment */
@@ -931,8 +926,6 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
 @media(max-width:380px){
   nav{padding:.5rem .6rem!important;}
   .n-cta{padding:.4rem .5rem!important;font-size:.4rem!important;letter-spacing:.06em!important;}
-  .n-lang-switcher .lang-code{display:none!important;}
-  .n-lang-switcher .lang-btn{gap:.2rem!important;}
   .topbar{font-size:.42rem!important;gap:.6rem!important;}
   .h-tag{font-size:.42rem!important;}
   .pricing-hdr h2{font-size:clamp(1.8rem,7vw,5rem)!important;}
@@ -988,8 +981,6 @@ footer{background:var(--ink2);padding:4rem 4.5rem 3rem;}
     <a href="#prezzi"   data-i18n="nav.pricing">Prezzi</a>
     <a href="#processo" data-i18n="nav.process">Processo</a>
     <a href="#faq"      data-i18n="nav.faq">FAQ</a>
-    <!-- Language switcher injected here by i18n.js -->
-    <div class="n-lang-switcher" data-i18n-switcher></div>
     <a href="#prezzi" class="n-cta" data-cursor="Scrivi" data-i18n-cursor="cursor.write" data-i18n="nav.contact">Contattaci</a>
   </div>
 </nav>
@@ -1745,13 +1736,6 @@ if(!isTouch){
   if(!localStorage.getItem('ck_consent'))setTimeout(()=>ck.classList.add('show'),1700);
   document.getElementById('ckOk').addEventListener('click',()=>{localStorage.setItem('ck_consent','all');ck.classList.remove('show');});
   document.getElementById('ckNo').addEventListener('click',()=>{localStorage.setItem('ck_consent','technical');ck.classList.remove('show');});
-})();
-
-/* ── URL LANG PARAM ── */
-(function(){
-  const params=new URLSearchParams(window.location.search);
-  const lang=params.get('lang');
-  if(lang){localStorage.setItem('calipso_lang',lang);}
 })();
 
 /* ── SERVICE GROUP ACCORDION ── */
